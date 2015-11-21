@@ -1,0 +1,29 @@
+# 阅读理解 2015-11-21
+
+# jemalloc
+# commit 3a92319ddc5610b755f755cbbbd12791ca9d0c3d
+# Author: Jason Evans <je@fb.com>
+# Date:   Thu Nov 12 11:23:39 2015 -0800
+#
+#    Use AC_CONFIG_AUX_DIR([build-aux]).
+#
+#    This resolves #293.
+
+# LuaJIT
+# commit 3a0b2a907b0168be8ef7aade95bd2ec3991fa78c
+# Author: Mike Pall <mike>
+# Date:   Wed Nov 18 23:24:50 2015 +0100
+#
+#    x64/LJ_GC64: Fix stack growth in vararg function setup.
+#
+#    Thanks to Vyacheslav Egorov.
+
+# Ponyc
+# commit 19b03c560abda62426ae10a4a186ba783b979489
+# Merge: 64cc8b3 027dcb4
+# Author: andymcn <andymcn@users.noreply.github.com>
+# Date:   Sat Nov 14 23:08:56 2015 +0000
+#
+#    Merge pull request #389 from Diltsman/master
+#
+#    Fix snprintf for VS2015
