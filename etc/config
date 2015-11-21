@@ -1,0 +1,28 @@
+root = "./"
+
+thread = 8
+
+-- ##logger config##
+logger = nil
+logpath = root.."var/log" 
+--logservice = 
+
+-- ##cluster config##
+harbor = 1 
+standalone = "0.0.0.0:2013"
+address = "127.0.0.1:2526"
+master = "127.0.0.1:2013"
+
+-- ##main config ##
+start = "main"	-- main script
+bootstrap = "snlua bootstrap"	-- The service for bootstrap
+
+-- ##path config##
+luaservice = root.."service/?.lua;"..root.."3rd/skynet/service/?.lua;"..root.."3rd/skynet/examples/?.lua"
+lualoader = root.."3rd/skynet/lualib/loader.lua"
+-- preload = "./examples/preload.lua"	-- run preload.lua before every lua service run
+snax = root.."etc/?lua;"..root.."3rd/skynet/examples/?.lua;"
+-- snax_interface_g = "snax_g"
+cpath = root.."cservice/?.so"
+lua_path = root.."3rd/skynet/lualib/?.lua;"..root.."3rd/skynet/examples/?.lua"
+-- daemon = "./skynet.pid"
