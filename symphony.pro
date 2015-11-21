@@ -4,35 +4,13 @@
 
 TEMPLATE = app
 TARGET = symphony
-INCLUDEPATH += .
+INCLUDEPATH += . \
+               ref/luajit/src \
+               ref/jemalloc/include
+
 
 # Input
-HEADERS += ref/libponyrt/pony.h \
-           ref/libponyrt/actor/actor.h \
-           ref/libponyrt/actor/messageq.h \
-           ref/libponyrt/asio/asio.h \
-           ref/libponyrt/asio/event.h \
-           ref/libponyrt/ds/fun.h \
-           ref/libponyrt/ds/hash.h \
-           ref/libponyrt/ds/list.h \
-           ref/libponyrt/ds/stack.h \
-           ref/libponyrt/gc/actormap.h \
-           ref/libponyrt/gc/cycle.h \
-           ref/libponyrt/gc/delta.h \
-           ref/libponyrt/gc/gc.h \
-           ref/libponyrt/gc/objectmap.h \
-           ref/libponyrt/gc/trace.h \
-           ref/libponyrt/lang/lang.h \
-           ref/libponyrt/lang/lsda.h \
-           ref/libponyrt/lang/socket.h \
-           ref/libponyrt/mem/alloc.h \
-           ref/libponyrt/mem/heap.h \
-           ref/libponyrt/mem/pagemap.h \
-           ref/libponyrt/mem/pool.h \
-           ref/libponyrt/options/options.h \
-           ref/libponyrt/sched/cpu.h \
-           ref/libponyrt/sched/mpmcq.h \
-           ref/libponyrt/sched/scheduler.h \
+HEADERS += \
            ref/luajit/dynasm/dasm_arm.h \
            ref/luajit/dynasm/dasm_arm64.h \
            ref/luajit/dynasm/dasm_mips.h \
@@ -114,11 +92,6 @@ HEADERS += ref/libponyrt/pony.h \
            ref/luajit/src/luaconf.h \
            ref/luajit/src/luajit.h \
            ref/luajit/src/lualib.h \
-           ref/luajit-lang-toolkit/src/language.h \
-           ref/luajit-lang-toolkit/src/language_loaders.h \
-           test/lua5.1-tests/etc/ltests.h \
-           ref/jemalloc/include/msvc_compat/strings.h \
-           ref/jemalloc/include/msvc_compat/windows_extra.h \
            ref/luajit/src/host/buildvm.h \
            ref/luajit/src/host/buildvm_arch.h \
            ref/luajit/src/host/buildvm_libbc.h \
@@ -152,29 +125,7 @@ HEADERS += ref/libponyrt/pony.h \
            ref/jemalloc/include/jemalloc/internal/tsd.h \
            ref/jemalloc/include/jemalloc/internal/util.h \
            ref/jemalloc/include/jemalloc/internal/valgrind.h \
-           ref/jemalloc/include/msvc_compat/C99/stdbool.h \
-           ref/jemalloc/include/msvc_compat/C99/stdint.h \
-           ref/jemalloc/test/include/test/btalloc.h \
-           ref/jemalloc/test/include/test/math.h \
-           ref/jemalloc/test/include/test/mq.h \
-           ref/jemalloc/test/include/test/mtx.h \
-           ref/jemalloc/test/include/test/SFMT-alti.h \
-           ref/jemalloc/test/include/test/SFMT-params.h \
-           ref/jemalloc/test/include/test/SFMT-params11213.h \
-           ref/jemalloc/test/include/test/SFMT-params1279.h \
-           ref/jemalloc/test/include/test/SFMT-params132049.h \
-           ref/jemalloc/test/include/test/SFMT-params19937.h \
-           ref/jemalloc/test/include/test/SFMT-params216091.h \
-           ref/jemalloc/test/include/test/SFMT-params2281.h \
-           ref/jemalloc/test/include/test/SFMT-params4253.h \
-           ref/jemalloc/test/include/test/SFMT-params44497.h \
-           ref/jemalloc/test/include/test/SFMT-params607.h \
-           ref/jemalloc/test/include/test/SFMT-params86243.h \
-           ref/jemalloc/test/include/test/SFMT-sse2.h \
-           ref/jemalloc/test/include/test/SFMT.h \
-           ref/jemalloc/test/include/test/test.h \
-           ref/jemalloc/test/include/test/thd.h \
-           ref/jemalloc/test/include/test/timer.h
+
 SOURCES += ref/jemalloc/src/arena.c \
            ref/jemalloc/src/atomic.c \
            ref/jemalloc/src/base.c \
@@ -200,43 +151,6 @@ SOURCES += ref/jemalloc/src/arena.c \
            ref/jemalloc/src/util.c \
            ref/jemalloc/src/valgrind.c \
            ref/jemalloc/src/zone.c \
-           ref/libponyrt/actor/actor.c \
-           ref/libponyrt/actor/messageq.c \
-           ref/libponyrt/asio/asio.c \
-           ref/libponyrt/asio/epoll.c \
-           ref/libponyrt/asio/event.c \
-           ref/libponyrt/asio/iocp.c \
-           ref/libponyrt/asio/kqueue.c \
-           ref/libponyrt/ds/fun.c \
-           ref/libponyrt/ds/hash.c \
-           ref/libponyrt/ds/list.c \
-           ref/libponyrt/ds/stack.c \
-           ref/libponyrt/gc/actormap.c \
-           ref/libponyrt/gc/cycle.c \
-           ref/libponyrt/gc/delta.c \
-           ref/libponyrt/gc/gc.c \
-           ref/libponyrt/gc/objectmap.c \
-           ref/libponyrt/gc/trace.c \
-           ref/libponyrt/lang/directory.c \
-           ref/libponyrt/lang/lsda.c \
-           ref/libponyrt/lang/paths.c \
-           ref/libponyrt/lang/posix_except.c \
-           ref/libponyrt/lang/socket.c \
-           ref/libponyrt/lang/ssl.c \
-           ref/libponyrt/lang/stat.c \
-           ref/libponyrt/lang/stdfd.c \
-           ref/libponyrt/lang/time.c \
-           ref/libponyrt/lang/win_except.c \
-           ref/libponyrt/mem/alloc.c \
-           ref/libponyrt/mem/heap.c \
-           ref/libponyrt/mem/pagemap.c \
-           ref/libponyrt/mem/pool.c \
-           ref/libponyrt/options/options.c \
-           ref/libponyrt/platform/threads.c \
-           ref/libponyrt/sched/cpu.c \
-           ref/libponyrt/sched/mpmcq.c \
-           ref/libponyrt/sched/scheduler.c \
-           ref/libponyrt/sched/start.c \
            ref/luajit/src/lib_aux.c \
            ref/luajit/src/lib_base.c \
            ref/luajit/src/lib_bit.c \
@@ -303,65 +217,74 @@ SOURCES += ref/jemalloc/src/arena.c \
            ref/luajit/src/lj_vmmath.c \
            ref/luajit/src/ljamalg.c \
            ref/luajit/src/luajit.c \
-           ref/luajit-lang-toolkit/src/language.c \
-           ref/luajit-lang-toolkit/src/language_loaders.c \
-           ref/luajit-lang-toolkit/src/luajit-x.c \
-           test/lua5.1-tests/etc/ltests.c \
-           ref/jemalloc/test/integration/aligned_alloc.c \
-           ref/jemalloc/test/integration/allocated.c \
-           ref/jemalloc/test/integration/chunk.c \
-           ref/jemalloc/test/integration/mallocx.c \
-           ref/jemalloc/test/integration/MALLOCX_ARENA.c \
-           ref/jemalloc/test/integration/overflow.c \
-           ref/jemalloc/test/integration/posix_memalign.c \
-           ref/jemalloc/test/integration/rallocx.c \
-           ref/jemalloc/test/integration/sdallocx.c \
-           ref/jemalloc/test/integration/thread_arena.c \
-           ref/jemalloc/test/integration/thread_tcache_enabled.c \
-           ref/jemalloc/test/integration/xallocx.c \
-           ref/jemalloc/test/src/btalloc.c \
-           ref/jemalloc/test/src/btalloc_0.c \
-           ref/jemalloc/test/src/btalloc_1.c \
-           ref/jemalloc/test/src/math.c \
-           ref/jemalloc/test/src/mq.c \
-           ref/jemalloc/test/src/mtx.c \
-           ref/jemalloc/test/src/SFMT.c \
-           ref/jemalloc/test/src/test.c \
-           ref/jemalloc/test/src/thd.c \
-           ref/jemalloc/test/src/timer.c \
-           ref/jemalloc/test/stress/microbench.c \
-           ref/jemalloc/test/unit/atomic.c \
-           ref/jemalloc/test/unit/bitmap.c \
-           ref/jemalloc/test/unit/ckh.c \
-           ref/jemalloc/test/unit/hash.c \
-           ref/jemalloc/test/unit/junk.c \
-           ref/jemalloc/test/unit/junk_alloc.c \
-           ref/jemalloc/test/unit/junk_free.c \
-           ref/jemalloc/test/unit/lg_chunk.c \
-           ref/jemalloc/test/unit/mallctl.c \
-           ref/jemalloc/test/unit/math.c \
-           ref/jemalloc/test/unit/mq.c \
-           ref/jemalloc/test/unit/mtx.c \
-           ref/jemalloc/test/unit/prof_accum.c \
-           ref/jemalloc/test/unit/prof_active.c \
-           ref/jemalloc/test/unit/prof_gdump.c \
-           ref/jemalloc/test/unit/prof_idump.c \
-           ref/jemalloc/test/unit/prof_reset.c \
-           ref/jemalloc/test/unit/prof_thread_name.c \
-           ref/jemalloc/test/unit/ql.c \
-           ref/jemalloc/test/unit/qr.c \
-           ref/jemalloc/test/unit/quarantine.c \
-           ref/jemalloc/test/unit/rb.c \
-           ref/jemalloc/test/unit/rtree.c \
-           ref/jemalloc/test/unit/SFMT.c \
-           ref/jemalloc/test/unit/size_classes.c \
-           ref/jemalloc/test/unit/stats.c \
-           ref/jemalloc/test/unit/tsd.c \
-           ref/jemalloc/test/unit/util.c \
-           ref/jemalloc/test/unit/zero.c \
            ref/luajit/src/host/buildvm.c \
            ref/luajit/src/host/buildvm_asm.c \
            ref/luajit/src/host/buildvm_fold.c \
            ref/luajit/src/host/buildvm_lib.c \
            ref/luajit/src/host/buildvm_peobj.c \
-           ref/luajit/src/host/minilua.c
+           ref/luajit/src/host/minilua.c \
+
+SUBDIRS += \
+    ref/luajit/luajit.pro
+
+DISTFILES += \
+    ref/luajit/luajit.pro.user \
+    ref/luajit/doc/img/contact.png \
+    ref/luajit/doc/bluequad-print.css \
+    ref/luajit/doc/bluequad.css \
+    ref/luajit/doc/changes.html \
+    ref/luajit/doc/contact.html \
+    ref/luajit/doc/ext_c_api.html \
+    ref/luajit/doc/ext_ffi.html \
+    ref/luajit/doc/ext_ffi_api.html \
+    ref/luajit/doc/ext_ffi_semantics.html \
+    ref/luajit/doc/ext_ffi_tutorial.html \
+    ref/luajit/doc/ext_jit.html \
+    ref/luajit/doc/ext_profiler.html \
+    ref/luajit/doc/extensions.html \
+    ref/luajit/doc/faq.html \
+    ref/luajit/doc/install.html \
+    ref/luajit/doc/luajit.html \
+    ref/luajit/doc/running.html \
+    ref/luajit/doc/status.html \
+    ref/luajit/etc/luajit.1 \
+    ref/luajit/etc/luajit.pc \
+    ref/luajit/src/lj.supp \
+    ref/luajit/src/msvcbuild.bat \
+    ref/luajit/src/ps4build.bat \
+    ref/luajit/src/psvitabuild.bat \
+    ref/luajit/src/vm_arm.dasc \
+    ref/luajit/src/vm_arm64.dasc \
+    ref/luajit/src/vm_mips.dasc \
+    ref/luajit/src/vm_ppc.dasc \
+    ref/luajit/src/vm_x64.dasc \
+    ref/luajit/src/vm_x86.dasc \
+    ref/luajit/src/xb1build.bat \
+    ref/luajit/src/xedkbuild.bat \
+    ref/luajit/COPYRIGHT \
+    ref/luajit/dynasm/dasm_arm.lua \
+    ref/luajit/dynasm/dasm_arm64.lua \
+    ref/luajit/dynasm/dasm_mips.lua \
+    ref/luajit/dynasm/dasm_ppc.lua \
+    ref/luajit/dynasm/dasm_x64.lua \
+    ref/luajit/dynasm/dasm_x86.lua \
+    ref/luajit/dynasm/dynasm.lua \
+    ref/luajit/src/host/genlibbc.lua \
+    ref/luajit/src/host/genminilua.lua \
+    ref/luajit/src/jit/bc.lua \
+    ref/luajit/src/jit/bcsave.lua \
+    ref/luajit/src/jit/dis_arm.lua \
+    ref/luajit/src/jit/dis_mips.lua \
+    ref/luajit/src/jit/dis_mipsel.lua \
+    ref/luajit/src/jit/dis_ppc.lua \
+    ref/luajit/src/jit/dis_x64.lua \
+    ref/luajit/src/jit/dis_x86.lua \
+    ref/luajit/src/jit/dump.lua \
+    ref/luajit/src/jit/p.lua \
+    ref/luajit/src/jit/v.lua \
+    ref/luajit/src/jit/zone.lua \
+    ref/luajit/src/Makefile \
+    ref/luajit/src/Makefile.dep \
+    ref/luajit/Makefile \
+    ref/luajit/src/host/README \
+    ref/luajit/README
