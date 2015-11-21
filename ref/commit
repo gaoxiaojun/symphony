@@ -18,6 +18,16 @@
 #
 #    Thanks to Vyacheslav Egorov.
 
+# Luajit-lang-tool
+# commit a61e5464de6b3e0d8508adb9bb81a769bf080dee
+# Merge: 776f221 4bb0a27
+# Author: Francesco <francesco.bbt@gmail.com>
+# Date:   Wed Nov 18 20:50:33 2015 +0100
+#
+#    Merge pull request #32 from stepelu/various-fixes-3
+#
+#    FIX: missing local declaration.
+
 # Ponyc
 # commit 19b03c560abda62426ae10a4a186ba783b979489
 # Merge: 64cc8b3 027dcb4
@@ -27,3 +37,18 @@
 #    Merge pull request #389 from Diltsman/master
 #
 #    Fix snprintf for VS2015
+
+# Re2c
+# commit fd13406cb9fa5c2260e901edb923d9a91de0c43a
+# Author: Ulya Trofimovich <skvadrik@gmail.com>
+# Date:   Wed May 20 13:48:34 2015 +0100
+#
+#    Updated version to 0.14.4.dev
+
+# Sqlite
+# commit 805524613a5e20e962282e19fa6461f3d5b8084f
+# Author: D. Richard Hipp <drh@hwaci.com>
+# Date:   Fri Nov 20 19:22:01 2015 +0000
+#
+#    Refactor the VdbeCursor object.  It is now slightly smaller and faster and is
+#    easier to understand.

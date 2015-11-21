@@ -1,0 +1,16 @@
+1. Upload new and delete old documentation
+
+2. Test windows build using cygwin
+
+3. Edit the following files:
+   - CHANGELOG
+   - htdocs/index.html
+
+4. Run script release.sh:
+    ./release.sh <version>
+
+5. Write NEWS file
+
+6. Add release notes on freshmeat
+
+7. Don't forget to set version to .dev
