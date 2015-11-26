@@ -13,7 +13,7 @@
 #endif
 
 #if LJ_TARGET_MIPS
-/* Need our own global offset table for the dreaded MIPS calling conventions. */
+/* Need our own global offset table for the dreaded(可怕的) MIPS calling conventions. */
 #if LJ_HASJIT
 #define JITGOTDEF(_)	_(lj_trace_exit) _(lj_trace_hot)
 #else
@@ -50,7 +50,7 @@ GOTDEF(GOTENUM)
 #endif
 
 /* Type of hot counter. Must match the code in the assembler VM. */
-/* 16 bits are sufficient. Only 0.0015% overhead with maximum slot penalty. */
+/* 16 bits are sufficient. Only 0.0015% overhead with maximum slot penalty(罚款). */
 typedef uint16_t HotCount;
 
 /* Number of hot counter hash table entries (must be a power of two). */
@@ -83,6 +83,7 @@ typedef struct GG_State {
   BCIns bcff[GG_NUM_ASMFF];		/* Bytecode for ASM fast functions. */
 } GG_State;
 
+//TODO_Q:为什么这里使用gcc的扩展offsetof而没有使用linux常用的CONTAIN_OF宏来实现？
 #define GG_OFS(field)	((int)offsetof(GG_State, field))
 #define G2GG(gl)	((GG_State *)((char *)(gl) - GG_OFS(g)))
 #define J2GG(j)		((GG_State *)((char *)(j) - GG_OFS(J)))

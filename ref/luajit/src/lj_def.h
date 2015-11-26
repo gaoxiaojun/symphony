@@ -138,7 +138,7 @@ typedef uintptr_t BloomFilter;
 #endif
 
 /* Note: it's only beneficial to use fastcall on x86 and then only for up to
-** two non-FP args. The amalgamated compile covers all LJ_FUNC cases. Only
+** two non-FP args. The amalgamated(合并) compile covers all LJ_FUNC cases. Only
 ** indirect calls and related tail-called C functions are marked as fastcall.
 */
 #if defined(__i386__)

@@ -13,7 +13,7 @@
 /* IR instruction definition. Order matters, see below. ORDER IR */
 #define IRDEF(_) \
   /* Guarded assertions. */ \
-  /* Must be properly aligned to flip opposites (^1) and (un)ordered (^4). */ \
+  /* Must be properly(适当的) aligned to flip opposites (^1) and (un)ordered (^4). */ \
   _(LT,		N , ref, ref) \
   _(GE,		N , ref, ref) \
   _(LE,		N , ref, ref) \
@@ -159,6 +159,7 @@ IRDEF(IRENUM)
 /* Stored opcode. */
 typedef uint8_t IROp1;
 
+// GXJ:WHY??? 什么地方利用这些限制？
 LJ_STATIC_ASSERT(((int)IR_EQ^1) == (int)IR_NE);
 LJ_STATIC_ASSERT(((int)IR_LT^1) == (int)IR_GE);
 LJ_STATIC_ASSERT(((int)IR_LE^1) == (int)IR_GT);
@@ -310,6 +311,7 @@ LJ_DATA const uint8_t lj_ir_mode[IR__MAX+1];
   _(SOFTFP, 4)  /* There is room for 9 more types. */
 
 /* IR result type and flags (8 bit). */
+// GXJ: irtype using 5bit for inst types & 3bit for flags, 对应上述的9(应该是8个) more types
 typedef enum {
 #define IRTENUM(name, size)	IRT_##name,
 IRTDEF(IRTENUM)
@@ -372,6 +374,7 @@ typedef struct IRType1 { uint8_t irt; } IRType1;
 #define irt_isaddr(t)		(irt_typerange((t), IRT_LIGHTUD, IRT_UDATA))
 #define irt_isint64(t)		(irt_typerange((t), IRT_I64, IRT_U64))
 
+// GXJ:
 #if LJ_GC64
 #define IRT_IS64 \
   ((1u<<IRT_NUM)|(1u<<IRT_I64)|(1u<<IRT_U64)|(1u<<IRT_P64)|\
@@ -403,7 +406,7 @@ static LJ_AINLINE IRType itype2irt(const TValue *tv)
     return IRT_LIGHTUD;
 #endif
   else
-    return (IRType)~itype(tv);
+    return (IRType)~itype(tv); //?????GXJ:
 }
 
 static LJ_AINLINE uint32_t irt_toitype_(IRType t)
@@ -464,9 +467,9 @@ enum {
 
 /* Tagged IR references (32 bit).
 **
-** +-------+-------+---------------+
+** +-------+-------+-------+-------+
 ** |  irt  | flags |      ref      |
-** +-------+-------+---------------+
+** +-------+-------+-------+-------+
 **
 ** The tag holds a copy of the IRType and speeds up IR type checks.
 */
@@ -500,8 +503,8 @@ typedef uint32_t TRef;
 #define tref_isbool(tr)		(tref_typerange((tr), IRT_FALSE, IRT_TRUE))
 #define tref_ispri(tr)		(tref_typerange((tr), IRT_NIL, IRT_TRUE))
 #define tref_istruecond(tr)	(!tref_typerange((tr), IRT_NIL, IRT_FALSE))
-#define tref_isinteger(tr)	(tref_typerange((tr), IRT_I8, IRT_INT))
-#define tref_isnumber(tr)	(tref_typerange((tr), IRT_NUM, IRT_INT))
+#define tref_isinteger(tr)	(tref_typerange((tr), IRT_I8, IRT_INT))     //GXJ:TODO_GC64
+#define tref_isnumber(tr)	(tref_typerange((tr), IRT_NUM, IRT_INT))    //GXJ:TODO_GC64
 #define tref_isnumber_str(tr)	(tref_isnumber((tr)) || tref_isstr((tr)))
 #define tref_isgcv(tr)		(tref_typerange((tr), IRT_STR, IRT_UDATA))
 
@@ -540,12 +543,12 @@ typedef union IRIns {
   struct {
     IRRef2 op12;	/* IR operand 1 and 2 (overlaps op1 and op2). */
     LJ_ENDIAN_LOHI(
-      IRType1 t;	/* IR type. */
+      IRType1 t;	/* IR type. */ // IR type with flags
     , IROp1 o;		/* IR opcode. */
     )
     LJ_ENDIAN_LOHI(
       uint8_t r;	/* Register allocation (overlaps prev). */
-    , uint8_t s;	/* Spill slot allocation (overlaps prev). */
+    , uint8_t s;	/* Spill(溢出) slot allocation (overlaps prev). */
     )
   };
   int32_t i;		/* 32 bit signed integer literal (overlaps op12). */

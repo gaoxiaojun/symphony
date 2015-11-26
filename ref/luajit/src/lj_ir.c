@@ -78,6 +78,7 @@ void LJ_FASTCALL lj_ir_growtop(jit_State *J)
 				     2*szins*sizeof(IRIns));
     J->irtoplim = J->irbotlim + 2*szins;
   } else {
+      // GXJ: 初始设计：32条，1/4常数 4/3指令
     baseir = (IRIns *)lj_mem_realloc(J->L, NULL, 0, LJ_MIN_IRSZ*sizeof(IRIns));
     J->irbotlim = REF_BASE - LJ_MIN_IRSZ/4;
     J->irtoplim = J->irbotlim + LJ_MIN_IRSZ;
@@ -127,6 +128,14 @@ TRef LJ_FASTCALL lj_ir_emit(jit_State *J)
 }
 
 /* Emit call to a C function. */
+/* GXJ:
+ * The args operand of call instructions references a left-leaning tree of arguments using the CARG extension instruction:
+ * func(): args = REF_NIL
+ * func(arg1): args = arg1
+ * func(arg1, arg2): args = CARG(arg1, arg2)
+ * func(arg1, arg2, arg3): args = CARG(CARG(arg1, arg2), arg3)
+ * etc.
+*/
 TRef lj_ir_call(jit_State *J, IRCallID id, ...)
 {
   const CCallInfo *ci = &lj_ir_callinfo[id];
@@ -183,6 +192,10 @@ TRef LJ_FASTCALL lj_ir_kint(jit_State *J, int32_t k)
 found:
   return TREF(ref, IRT_INT);
 }
+
+/*
+ * 为什么这样设计
+ */
 
 /* The MRef inside the KNUM/KINT64 IR instructions holds the address of the
 ** 64 bit constant. The constants themselves are stored in a chained array

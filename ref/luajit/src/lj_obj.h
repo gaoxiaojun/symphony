@@ -87,9 +87,9 @@ typedef struct GCRef {
 
 /* IMPORTANT NOTE:
 **
-** All uses of the setgcref* macros MUST be accompanied with a write barrier.
+** All uses of the setgcref* macros MUST be accompanied(伴随) with a write barrier.
 **
-** This is to ensure the integrity of the incremental GC. The invariant
+** This is to ensure the integrity of the incremental GC. The invariant(不变)
 ** to preserve is that a black object never points to a white object.
 ** I.e. never store a white object into a field of a black object.
 **

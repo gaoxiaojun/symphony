@@ -518,7 +518,7 @@ out:
 }
 
 #if LJ_HASJIT
-/* Stitch a new trace. */
+/* Stitch(缝) a new trace. */
 void LJ_FASTCALL lj_dispatch_stitch(jit_State *J, const BCIns *pc)
 {
   ERRNO_SAVE
