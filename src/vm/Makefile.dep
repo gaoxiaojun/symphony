@@ -1,0 +1,244 @@
+lib_aux.o: lua/lib/lua/lib/lib_aux.c lua/lua.h lua/luaconf.h lua/lauxlib.h core/lj_obj.h core/lj_def.h \
+ core/lj_arch.h core/lj_err.h core/lj_errmsg.h core/lj_state.h jit/lj_trace.h jit/lj_jit.h jit/ir/lj_ir.h \
+ core/lj_dispatch.h core/bytecode/lj_bc.h jit/lj_traceerr.h core/lj_lib.h core/lj_alloc.h
+lib_base.o: lua/lib/lib_base.c lua/lua.h lua/luaconf.h lua/lauxlib.h lua/lualib.h core/lj_obj.h \
+ core/lj_def.h core/lj_arch.h core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/lj_debug.h core/util/lj_str.h \
+ core/lj_tab.h core/lj_meta.h core/lj_state.h ffi/lj_ctype.h ffi/lj_cconv.h core/bytecode/lj_bc.h core/lj_ff.h \
+ gen/lj_ffdef.h core/lj_dispatch.h jit/lj_jit.h jit/ir/lj_ir.h core/util/lj_char.h core/util/core/util/lj_str.can.h \
+ core/util/lj_strfmt.h core/lj_lib.h gen/lj_libdef.h
+lib_bit.o: lua/lib/lib_bit.c lua/lua.h lua/luaconf.h lua/lauxlib.h lua/lualib.h core/lj_obj.h core/lj_def.h \
+ core/lj_arch.h core/lj_err.h core/lj_errmsg.h core/util/lj_buf.h core/lj_gc.h core/util/lj_str.h core/util/core/util/lj_str.can.h \
+ core/util/lj_strfmt.h ffi/lj_ctype.h ffi/lj_cdata.h ffi/lj_cconv.h ffi/lj_carith.h core/lj_ff.h \
+ gen/lj_ffdef.h core/lj_lib.h gen/lj_libdef.h
+lib_debug.o: lua/lib/lib_debug.c lua/lua.h lua/luaconf.h lua/lauxlib.h lua/lualib.h core/lj_obj.h \
+ core/lj_def.h core/lj_arch.h core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/lj_debug.h core/lj_lib.h \
+ gen/lj_libdef.h
+lib_ffi.o: lua/lib/lib_ffi.c lua/lua.h lua/luaconf.h lua/lauxlib.h lua/lualib.h core/lj_obj.h core/lj_def.h \
+ core/lj_arch.h core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/util/lj_str.h core/lj_tab.h core/lj_meta.h \
+ ffi/lj_ctype.h ffi/lj_cparse.h ffi/lj_cdata.h ffi/lj_cconv.h ffi/lj_carith.h ffi/lj_ccall.h \
+ ffi/lj_ccallback.h ffi/lj_clib.h core/util/lj_strfmt.h core/lj_ff.h gen/lj_ffdef.h core/lj_lib.h \
+ gen/lj_libdef.h
+lib_init.o: lua/lib/lib_init.c lua/lua.h lua/luaconf.h lua/lauxlib.h lua/lualib.h core/lj_arch.h
+lib_io.o: lua/lib/lib_io.c lua/lua.h lua/luaconf.h lua/lauxlib.h lua/lualib.h core/lj_obj.h core/lj_def.h \
+ core/lj_arch.h core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/util/lj_buf.h core/util/lj_str.h core/lj_state.h \
+ core/util/lj_strfmt.h core/lj_ff.h gen/lj_ffdef.h core/lj_lib.h gen/lj_libdef.h
+lib_jit.o: lua/lib/lib_jit.c lua/lua.h lua/luaconf.h lua/lauxlib.h lua/lualib.h core/lj_obj.h core/lj_def.h \
+ core/lj_arch.h core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/lj_debug.h core/util/lj_str.h core/lj_tab.h \
+ core/lj_state.h core/bytecode/lj_bc.h ffi/lj_ctype.h jit/ir/lj_ir.h jit/lj_jit.h jit/ir/lj_ircall.h jit/ir/lj_iropt.h \
+ jit/lj_target.h jit/lj_target_*.h jit/lj_trace.h core/lj_dispatch.h jit/lj_traceerr.h \
+ core/lj_vm.h core/lj_vmevent.h core/lj_lib.h lua/luajit.h gen/lj_libdef.h
+lib_math.o: lua/lib/lib_math.c lua/lua.h lua/luaconf.h lua/lauxlib.h lua/lualib.h core/lj_obj.h \
+ core/lj_def.h core/lj_arch.h core/lj_lib.h core/lj_vm.h gen/lj_libdef.h
+lib_os.o: lua/lib/lib_os.c lua/lua.h lua/luaconf.h lua/lauxlib.h lua/lualib.h core/lj_obj.h core/lj_def.h \
+ core/lj_arch.h core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/util/lj_buf.h core/util/lj_str.h core/lj_lib.h \
+ gen/lj_libdef.h
+lib_package.o: lua/lib/lib_package.c lua/lua.h lua/luaconf.h lua/lauxlib.h lua/lualib.h core/lj_obj.h \
+ core/lj_def.h core/lj_arch.h core/lj_err.h core/lj_errmsg.h core/lj_lib.h
+lib_string.o: lua/lib/lib_string.c lua/lua.h lua/luaconf.h lua/lauxlib.h lua/lualib.h core/lj_obj.h \
+ core/lj_def.h core/lj_arch.h core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/util/lj_buf.h core/util/lj_str.h \
+ core/lj_tab.h core/lj_meta.h core/lj_state.h core/lj_ff.h gen/lj_ffdef.h core/bytecode/lj_bcdump.h core/lang/lj_lex.h \
+ core/util/lj_char.h core/util/lj_strfmt.h core/lj_lib.h gen/lj_libdef.h
+lib_table.o: lua/lib/lib_table.c lua/lua.h lua/luaconf.h lua/lauxlib.h lua/lualib.h core/lj_obj.h \
+ core/lj_def.h core/lj_arch.h core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/util/lj_buf.h core/util/lj_str.h \
+ core/lj_tab.h core/lj_ff.h gen/lj_ffdef.h core/lj_lib.h gen/lj_libdef.h
+lj_alloc.o: core/lj_alloc.c core/lj_def.h lua/lua.h lua/luaconf.h core/lj_arch.h core/lj_alloc.h
+lj_api.o: core/lj_api.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h core/lj_gc.h \
+ core/lj_err.h core/lj_errmsg.h core/lj_debug.h core/util/lj_str.h core/lj_tab.h core/lj_func.h core/lj_udata.h \
+ core/lj_meta.h core/lj_state.h core/bytecode/lj_bc.h core/lj_frame.h jit/lj_trace.h jit/lj_jit.h jit/ir/lj_ir.h \
+ core/lj_dispatch.h jit/lj_traceerr.h core/lj_vm.h core/util/core/util/lj_str.can.h core/util/lj_strfmt.h
+lj_asm.o: jit/lj_asm.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h core/lj_gc.h \
+ core/util/lj_str.h core/lj_tab.h core/lj_frame.h core/bytecode/lj_bc.h ffi/lj_ctype.h jit/ir/lj_ir.h jit/lj_jit.h \
+ jit/ir/lj_ircall.h jit/ir/lj_iropt.h jit/lj_mcode.h jit/lj_trace.h core/lj_dispatch.h jit/lj_traceerr.h \
+ jit/lj_snap.h jit/lj_asm.h core/lj_vm.h jit/lj_target.h jit/lj_target_*.h jit/arch/lj_emit_*.h \
+ jit/arch/lj_asm_*.h
+lj_bc.o: core/bytecode/lj_bc.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h core/bytecode/lj_bc.h \
+ gen/lj_bcdef.h
+lj_bcread.o: core/lang/lj_bcread.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/util/lj_buf.h core/util/lj_str.h core/lj_tab.h core/bytecode/lj_bc.h \
+ ffi/lj_ctype.h ffi/lj_cdata.h lua/lualib.h core/lang/lj_lex.h core/bytecode/lj_bcdump.h core/lj_state.h \
+ core/util/lj_strfmt.h
+lj_bcwrite.o: core/bytecode/lj_bcwrite.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/lj_gc.h core/util/lj_buf.h core/util/lj_str.h core/bytecode/lj_bc.h ffi/lj_ctype.h core/lj_dispatch.h jit/lj_jit.h \
+ jit/ir/lj_ir.h core/util/lj_strfmt.h core/bytecode/lj_bcdump.h core/lang/lj_lex.h core/lj_err.h core/lj_errmsg.h core/lj_vm.h
+lj_buf.o: core/util/lj_buf.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h core/lj_gc.h \
+ core/lj_err.h core/lj_errmsg.h core/util/lj_buf.h core/util/lj_str.h core/lj_tab.h core/util/lj_strfmt.h
+lj_carith.o: ffi/lj_carith.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/lj_tab.h core/lj_meta.h jit/ir/lj_ir.h ffi/lj_ctype.h \
+ ffi/lj_cconv.h ffi/lj_cdata.h ffi/lj_carith.h core/util/core/util/lj_str.can.h
+lj_ccall.o: lj_ccall.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/lj_tab.h ffi/lj_ctype.h ffi/lj_cconv.h ffi/lj_cdata.h \
+ ffi/lj_ccall.h jit/lj_trace.h jit/lj_jit.h jit/ir/lj_ir.h core/lj_dispatch.h core/bytecode/lj_bc.h \
+ jit/lj_traceerr.h
+lj_ccallback.o: ffi/lj_ccallback.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h \
+ core/lj_arch.h core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/lj_tab.h core/lj_state.h core/lj_frame.h \
+ core/bytecode/lj_bc.h ffi/lj_ctype.h ffi/lj_cconv.h ffi/lj_ccall.h ffi/lj_ccallback.h jit/lj_target.h \
+ jit/lj_target_*.h jit/lj_mcode.h jit/lj_jit.h jit/ir/lj_ir.h jit/lj_trace.h core/lj_dispatch.h \
+ jit/lj_traceerr.h core/lj_vm.h
+lj_cconv.o: lj_cconv.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/lj_err.h core/lj_errmsg.h core/lj_tab.h ffi/lj_ctype.h core/lj_gc.h ffi/lj_cdata.h ffi/lj_cconv.h \
+ ffi/lj_ccallback.h
+ffi/lj_cdata.o: ffi/lj_cdata.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/lj_tab.h ffi/lj_ctype.h ffi/lj_cconv.h ffi/lj_cdata.h
+lj_char.o: core/util/lj_char.c core/util/lj_char.h core/lj_def.h lua/lua.h lua/luaconf.h
+lj_clib.o: ffi/lj_clib.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h core/lj_gc.h \
+ core/lj_err.h core/lj_errmsg.h core/lj_tab.h core/util/lj_str.h core/lj_udata.h ffi/lj_ctype.h ffi/lj_cconv.h \
+ ffi/lj_cdata.h ffi/lj_clib.h core/util/lj_strfmt.h
+lj_cparse.o: ffi/lj_cparse.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/util/lj_buf.h core/util/lj_str.h ffi/lj_ctype.h ffi/lj_cparse.h \
+ core/lj_frame.h core/bytecode/lj_bc.h core/lj_vm.h core/util/lj_char.h core/util/core/util/lj_str.can.h core/util/lj_strfmt.h
+lj_crecord.o: ffi/lj_crecord.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/lj_err.h core/lj_errmsg.h core/lj_tab.h core/lj_frame.h core/bytecode/lj_bc.h ffi/lj_ctype.h core/lj_gc.h \
+ ffi/lj_cdata.h ffi/lj_cparse.h ffi/lj_cconv.h ffi/lj_carith.h ffi/lj_clib.h ffi/lj_ccall.h \
+ core/lj_ff.h gen/lj_ffdef.h jit/ir/lj_ir.h jit/lj_jit.h jit/ir/lj_ircall.h jit/ir/lj_iropt.h jit/lj_trace.h \
+ core/lj_dispatch.h jit/lj_traceerr.h jit/lj_record.h ffi/lj_ffrecord.h jit/lj_snap.h \
+ ffi/lj_crecord.h core/util/lj_strfmt.h
+lj_ctype.o: ffi/lj_ctype.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/util/lj_str.h core/lj_tab.h core/util/lj_strfmt.h ffi/lj_ctype.h \
+ ffi/lj_ccallback.h
+lj_debug.o: lj_debug.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/lj_err.h core/lj_errmsg.h core/lj_debug.h core/util/lj_buf.h core/lj_gc.h core/util/lj_str.h core/lj_tab.h \
+ core/lj_state.h core/lj_frame.h core/bytecode/lj_bc.h core/util/lj_strfmt.h jit/lj_jit.h jit/ir/lj_ir.h
+lj_dispatch.o: lj_dispatch.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/lj_err.h core/lj_errmsg.h core/util/lj_buf.h core/lj_gc.h core/util/lj_str.h core/lj_func.h core/lj_tab.h \
+ core/lj_meta.h core/lj_debug.h core/lj_state.h core/lj_frame.h core/bytecode/lj_bc.h core/lj_ff.h gen/lj_ffdef.h \
+ core/util/lj_strfmt.h jit/lj_jit.h jit/ir/lj_ir.h ffi/lj_ccallback.h ffi/lj_ctype.h jit/lj_trace.h \
+ core/lj_dispatch.h jit/lj_traceerr.h core/lj_profile.h core/lj_vm.h lua/luajit.h
+lj_err.o: core/lj_err.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h core/lj_err.h \
+ core/lj_errmsg.h core/lj_debug.h core/util/lj_str.h core/lj_func.h core/lj_state.h core/lj_frame.h core/bytecode/lj_bc.h \
+ core/lj_ff.h gen/lj_ffdef.h jit/lj_trace.h jit/lj_jit.h jit/ir/lj_ir.h core/lj_dispatch.h \
+ jit/lj_traceerr.h core/lj_vm.h core/util/lj_strfmt.h
+lj_ffrecord.o: ffi/lj_ffrecord.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/lj_err.h core/lj_errmsg.h core/util/lj_str.h core/lj_tab.h core/lj_frame.h core/bytecode/lj_bc.h core/lj_ff.h \
+ gen/lj_ffdef.h jit/ir/lj_ir.h jit/lj_jit.h jit/ir/lj_ircall.h jit/ir/lj_iropt.h jit/lj_trace.h \
+ core/lj_dispatch.h jit/lj_traceerr.h jit/lj_record.h ffi/lj_ffrecord.h ffi/lj_crecord.h \
+ core/lj_vm.h core/util/core/util/lj_str.can.h core/util/lj_strfmt.h gen/lj_recdef.h
+lj_func.o: core/lj_func.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h core/lj_gc.h \
+ core/lj_func.h jit/lj_trace.h jit/lj_jit.h jit/ir/lj_ir.h core/lj_dispatch.h core/bytecode/lj_bc.h \
+ jit/lj_traceerr.h core/lj_vm.h
+lj_gc.o: core/lj_gc.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h core/lj_gc.h \
+ core/lj_err.h core/lj_errmsg.h core/util/lj_buf.h core/util/lj_str.h core/lj_tab.h core/lj_func.h core/lj_udata.h \
+ core/lj_meta.h core/lj_state.h core/lj_frame.h core/bytecode/lj_bc.h ffi/lj_ctype.h ffi/lj_cdata.h jit/lj_trace.h \
+ jit/lj_jit.h jit/ir/lj_ir.h core/lj_dispatch.h jit/lj_traceerr.h core/lj_vm.h
+lj_gdbjit.o: jit/lj_gdbjit.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/lj_debug.h core/lj_frame.h core/bytecode/lj_bc.h core/util/lj_buf.h \
+ core/util/lj_str.h core/util/lj_strfmt.h jit/lj_jit.h jit/ir/lj_ir.h core/lj_dispatch.h
+lj_ir.o: jit/ir/lj_ir.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h core/lj_gc.h \
+ core/util/lj_buf.h core/util/lj_str.h core/lj_tab.h jit/ir/lj_ir.h jit/lj_jit.h jit/ir/lj_ircall.h jit/ir/lj_iropt.h \
+ jit/lj_trace.h core/lj_dispatch.h core/bytecode/lj_bc.h jit/lj_traceerr.h ffi/lj_ctype.h ffi/lj_cdata.h \
+ ffi/lj_carith.h core/lj_vm.h core/util/core/util/lj_str.can.h core/util/lj_strfmt.h core/lj_lib.h
+lj_lex.o: core/lang/lj_lex.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h core/lj_gc.h \
+ core/lj_err.h core/lj_errmsg.h core/util/lj_buf.h core/util/lj_str.h core/lj_tab.h ffi/lj_ctype.h ffi/lj_cdata.h \
+ lua/lualib.h core/lj_state.h core/lang/lj_lex.h core/lang/lj_parse.h core/util/lj_char.h core/util/core/util/lj_str.can.h \
+ core/util/lj_strfmt.h
+lj_lib.o: ffi/lj_lib.c lua/lauxlib.h lua/lua.h lua/luaconf.h core/lj_obj.h core/lj_def.h core/lj_arch.h \
+ core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/util/lj_str.h core/lj_tab.h core/lj_func.h core/bytecode/lj_bc.h \
+ core/lj_dispatch.h jit/lj_jit.h jit/ir/lj_ir.h core/lj_vm.h core/util/core/util/lj_str.can.h core/util/lj_strfmt.h core/lang/lj_lex.h \
+ core/bytecode/lj_bcdump.h core/lj_lib.h
+lj_load.o: core/lj_load.c lua/lua.h lua/luaconf.h lua/lauxlib.h core/lj_obj.h core/lj_def.h \
+ core/lj_arch.h core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/util/lj_buf.h core/util/lj_str.h core/lj_func.h \
+ core/lj_frame.h core/bytecode/lj_bc.h core/lj_vm.h core/lang/lj_lex.h core/bytecode/lj_bcdump.h core/lang/lj_parse.h
+lj_mcode.o: jit/lj_mcode.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/lj_gc.h core/lj_err.h core/lj_errmsg.h jit/lj_jit.h jit/ir/lj_ir.h jit/lj_mcode.h jit/lj_trace.h \
+ core/lj_dispatch.h core/bytecode/lj_bc.h jit/lj_traceerr.h core/lj_vm.h
+lj_meta.o: core/lj_meta.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h core/lj_gc.h \
+ core/lj_err.h core/lj_errmsg.h core/util/lj_buf.h core/util/lj_str.h core/lj_tab.h core/lj_meta.h core/lj_frame.h \
+ core/bytecode/lj_bc.h core/lj_vm.h core/util/core/util/lj_str.can.h core/util/lj_strfmt.h core/lj_lib.h
+lj_obj.o: lj_obj.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h
+lj_opt_dce.o: jit/opt/lj_opt_dce.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ jit/ir/lj_ir.h jit/lj_jit.h jit/ir/lj_iropt.h
+lj_opt_fold.o: jit/opt/lj_opt_fold.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/util/lj_buf.h core/lj_gc.h core/util/lj_str.h core/lj_tab.h jit/ir/lj_ir.h jit/lj_jit.h jit/ir/lj_ircall.h \
+ jit/ir/lj_iropt.h jit/lj_trace.h core/lj_dispatch.h core/bytecode/lj_bc.h jit/lj_traceerr.h ffi/lj_ctype.h \
+ ffi/lj_carith.h core/lj_vm.h core/util/core/util/lj_str.can.h core/util/lj_strfmt.h gen/lj_folddef.h
+lj_opt_loop.o: jit/opt/lj_opt_loop.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/lj_err.h core/lj_errmsg.h core/util/lj_buf.h core/lj_gc.h core/util/lj_str.h jit/ir/lj_ir.h jit/lj_jit.h \
+ jit/ir/lj_iropt.h jit/lj_trace.h core/lj_dispatch.h core/bytecode/lj_bc.h jit/lj_traceerr.h jit/lj_snap.h \
+ core/lj_vm.h
+lj_opt_mem.o: jit/opt/lj_opt_mem.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/lj_tab.h jit/ir/lj_ir.h jit/lj_jit.h jit/ir/lj_iropt.h jit/ir/lj_ircall.h
+lj_opt_narrow.o: jit/opt/lj_opt_narrow.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h \
+ core/lj_arch.h core/bytecode/lj_bc.h jit/ir/lj_ir.h jit/lj_jit.h jit/ir/lj_iropt.h jit/lj_trace.h core/lj_dispatch.h \
+ jit/lj_traceerr.h core/lj_vm.h core/util/core/util/lj_str.can.h
+lj_opt_sink.o: jit/opt/lj_opt_sink.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ jit/ir/lj_ir.h jit/lj_jit.h jit/ir/lj_iropt.h jit/lj_target.h jit/lj_target_*.h
+lj_opt_split.o: jit/opt/lj_opt_split.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h \
+ core/lj_arch.h core/lj_err.h core/lj_errmsg.h core/util/lj_buf.h core/lj_gc.h core/util/lj_str.h jit/ir/lj_ir.h \
+ jit/lj_jit.h jit/ir/lj_ircall.h jit/ir/lj_iropt.h core/lj_vm.h
+lj_parse.o: core/lang/lj_parse.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/lj_debug.h core/util/lj_buf.h core/util/lj_str.h core/lj_tab.h \
+ core/lj_func.h core/lj_state.h core/bytecode/lj_bc.h ffi/lj_ctype.h core/util/lj_strfmt.h core/lang/lj_lex.h core/lang/lj_parse.h \
+ core/lj_vm.h core/lj_vmevent.h
+lj_profile.o: core/lj_profile.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/util/lj_buf.h core/lj_gc.h core/util/lj_str.h core/lj_frame.h core/bytecode/lj_bc.h core/lj_debug.h core/lj_dispatch.h \
+ jit/lj_jit.h jit/ir/lj_ir.h jit/lj_trace.h jit/lj_traceerr.h core/lj_profile.h lua/luajit.h
+lj_record.o: jit/lj_record.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/lj_err.h core/lj_errmsg.h core/util/lj_str.h core/lj_tab.h core/lj_meta.h core/lj_frame.h core/bytecode/lj_bc.h \
+ ffi/lj_ctype.h core/lj_gc.h core/lj_ff.h gen/lj_ffdef.h core/lj_debug.h jit/ir/lj_ir.h jit/lj_jit.h \
+ jit/ir/lj_ircall.h jit/ir/lj_iropt.h jit/lj_trace.h core/lj_dispatch.h jit/lj_traceerr.h \
+ jit/lj_record.h ffi/lj_ffrecord.h jit/lj_snap.h core/lj_vm.h
+lj_snap.o: jit/lj_snap.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h core/lj_gc.h \
+ core/lj_tab.h core/lj_state.h core/lj_frame.h core/bytecode/lj_bc.h jit/ir/lj_ir.h jit/lj_jit.h jit/ir/lj_iropt.h \
+ jit/lj_trace.h core/lj_dispatch.h jit/lj_traceerr.h jit/lj_snap.h jit/lj_target.h \
+ jit/lj_target_*.h ffi/lj_ctype.h ffi/lj_cdata.h
+lj_state.o: core/lj_state.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/util/lj_buf.h core/util/lj_str.h core/lj_tab.h core/lj_func.h \
+ core/lj_meta.h core/lj_state.h core/lj_frame.h core/bytecode/lj_bc.h ffi/lj_ctype.h jit/lj_trace.h jit/lj_jit.h \
+ jit/ir/lj_ir.h core/lj_dispatch.h jit/lj_traceerr.h core/lj_vm.h core/lang/lj_lex.h core/lj_alloc.h lua/luajit.h
+lj_str.o: core/util/lj_str.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h core/lj_gc.h \
+ core/lj_err.h core/lj_errmsg.h core/util/lj_str.h core/util/lj_char.h
+lj_strfmt.o: core/util/lj_strfmt.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/util/lj_buf.h core/lj_gc.h core/util/lj_str.h core/lj_state.h core/util/lj_char.h core/util/lj_strfmt.h
+core/util/lj_str.can.o: core/util/lj_str.can.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/util/lj_char.h core/util/core/util/lj_str.can.h
+lj_tab.o: core/lj_tab.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h core/lj_gc.h \
+ core/lj_err.h core/lj_errmsg.h core/lj_tab.h
+lj_trace.o: jit/lj_trace.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/lj_debug.h core/util/lj_str.h core/lj_frame.h core/bytecode/lj_bc.h \
+ core/lj_state.h jit/ir/lj_ir.h jit/lj_jit.h jit/ir/lj_iropt.h jit/lj_mcode.h jit/lj_trace.h \
+ core/lj_dispatch.h jit/lj_traceerr.h jit/lj_snap.h jit/lj_gdbjit.h jit/lj_record.h jit/lj_asm.h \
+ core/lj_vm.h core/lj_vmevent.h jit/lj_target.h jit/lj_target_*.h
+lj_udata.o: core/lj_udata.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/lj_gc.h core/lj_udata.h
+lj_vmevent.o: core/lj_vmevent.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ core/util/lj_str.h core/lj_tab.h core/lj_state.h core/lj_dispatch.h core/bytecode/lj_bc.h jit/lj_jit.h jit/ir/lj_ir.h \
+ core/lj_vm.h core/lj_vmevent.h
+lj_vmmath.o: lj_vmmath.c core/lj_obj.h lua/lua.h lua/luaconf.h core/lj_def.h core/lj_arch.h \
+ jit/ir/lj_ir.h core/lj_vm.h
+ljamalg.o: util/ljamalg.c lua/lua.h lua/luaconf.h lua/lauxlib.h core/lj_gc.c core/lj_obj.h core/lj_def.h \
+ core/lj_arch.h core/lj_gc.h core/lj_err.h core/lj_errmsg.h core/util/lj_buf.h core/util/lj_str.h core/lj_tab.h \
+ core/lj_func.h core/lj_udata.h core/lj_meta.h core/lj_state.h core/lj_frame.h core/bytecode/lj_bc.h ffi/lj_ctype.h \
+ ffi/lj_cdata.h jit/lj_trace.h jit/lj_jit.h jit/ir/lj_ir.h core/lj_dispatch.h jit/lj_traceerr.h \
+ core/lj_vm.h core/lj_err.c core/lj_debug.h core/lj_ff.h gen/lj_ffdef.h core/util/lj_strfmt.h core/util/lj_char.c \
+ core/util/lj_char.h core/bytecode/lj_bc.c gen/lj_bcdef.h lj_obj.c core/util/lj_buf.c core/util/lj_str.c core/lj_tab.c \
+ core/lj_func.c core/lj_udata.c core/lj_meta.c core/util/core/util/lj_str.can.h core/lj_lib.h lj_debug.c \
+ core/lj_state.c core/lang/lj_lex.h core/lj_alloc.h lua/luajit.h lj_dispatch.c ffi/lj_ccallback.h \
+ core/lj_profile.h core/lj_vmevent.c core/lj_vmevent.h lj_vmmath.c core/util/lj_str.can.c \
+ core/util/lj_strfmt.c core/lj_api.c core/lj_profile.c core/lang/lj_lex.c lua/lualib.h core/lang/lj_parse.h \
+ core/lang/lj_parse.c core/lang/lj_bcread.c core/bytecode/lj_bcdump.h core/bytecode/lj_bcwrite.c core/lj_load.c ffi/lj_ctype.c \
+ ffi/lj_cdata.c ffi/lj_cconv.h lj_cconv.c lj_ccall.c ffi/lj_ccall.h ffi/lj_ccallback.c \
+ jit/lj_target.h jit/lj_target_*.h jit/lj_mcode.h ffi/lj_carith.c ffi/lj_carith.h ffi/lj_clib.c \
+ ffi/lj_clib.h ffi/lj_cparse.c ffi/lj_cparse.h ffi/lj_lib.c jit/ir/lj_ir.c jit/ir/lj_ircall.h \
+ jit/ir/lj_iropt.h jit/opt/lj_opt_mem.c jit/opt/lj_opt_fold.c gen/lj_folddef.h jit/opt/lj_opt_narrow.c \
+ jit/opt/lj_opt_dce.c jit/opt/lj_opt_loop.c jit/lj_snap.h jit/opt/lj_opt_split.c jit/opt/lj_opt_sink.c \
+ jit/lj_mcode.c jit/lj_snap.c jit/lj_record.c jit/lj_record.h ffi/lj_ffrecord.h ffi/lj_crecord.c \
+ ffi/lj_crecord.h ffi/lj_ffrecord.c gen/lj_recdef.h jit/lj_asm.c jit/lj_asm.h jit/arch/lj_emit_*.h \
+ jit/arch/lj_asm_*.h jit/lj_trace.c jit/lj_gdbjit.h jit/lj_gdbjit.c core/lj_alloc.c lua/lib/lua/lib/lib_aux.c \
+ lua/lib/lib_base.c gen/lj_libdef.h lua/lib/lib_math.c lua/lib/lib_string.c lua/lib/lib_table.c lua/lib/lib_io.c \
+ lua/lib/lib_os.c lua/lib/lib_package.c lua/lib/lib_debug.c lua/lib/lib_bit.c lua/lib/lib_jit.c lua/lib/lib_ffi.c \
+ lua/lib/lib_init.c
+luajit.o: lua/luajit.c lua/lua.h lua/luaconf.h lua/lauxlib.h lua/lualib.h lua/luajit.h core/lj_arch.h
+obj/tool/buildvm.o: tool/buildvm.c tool/buildvm.h core/lj_def.h lua/lua.h lua/luaconf.h \
+ core/lj_arch.h core/lj_obj.h core/lj_def.h core/lj_arch.h core/lj_gc.h core/lj_obj.h core/bytecode/lj_bc.h jit/ir/lj_ir.h \
+ jit/ir/lj_ircall.h jit/ir/lj_ir.h jit/lj_jit.h core/lj_frame.h core/bytecode/lj_bc.h core/lj_dispatch.h ffi/lj_ctype.h \
+ core/lj_gc.h ffi/lj_ccall.h ffi/lj_ctype.h lua/luajit.h \
+ tool/buildvm_arch.h jit/lj_traceerr.h
+obj/tool/buildvm_asm.o: tool/buildvm_asm.c tool/buildvm.h core/lj_def.h lua/lua.h lua/luaconf.h \
+ core/lj_arch.h core/bytecode/lj_bc.h core/lj_def.h core/lj_arch.h
+obj/tool/buildvm_fold.o: tool/buildvm_fold.c tool/buildvm.h core/lj_def.h lua/lua.h \
+ lua/luaconf.h core/lj_arch.h core/lj_obj.h core/lj_def.h core/lj_arch.h jit/ir/lj_ir.h core/lj_obj.h
+obj/tool/buildvm_lib.o: tool/buildvm_lib.c tool/buildvm.h core/lj_def.h lua/lua.h lua/luaconf.h \
+ core/lj_arch.h core/lj_obj.h core/lj_def.h core/lj_arch.h core/bytecode/lj_bc.h core/lj_lib.h core/lj_obj.h \
+ tool/buildvm_libbc.h
+obj/tool/buildvm_peobj.o: tool/buildvm_peobj.c tool/buildvm.h core/lj_def.h lua/lua.h \
+ lua/luaconf.h core/lj_arch.h core/bytecode/lj_bc.h core/lj_def.h core/lj_arch.h
+obj/tool/minilua.o: tool/minilua.c
