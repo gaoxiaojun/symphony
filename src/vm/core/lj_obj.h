@@ -150,6 +150,7 @@ typedef uint32_t BCReg;  /* Bytecode register. */
 typedef int32_t BCLine;  /* Bytecode line number. */
 
 /* Internal assembler functions. Never call these directly from C. */
+//GTD: 汇编实现的bytecode指令
 typedef void (*ASMFunction)(void);
 
 /* Resizable string buffer. Need this here, details in lj_buf.h. */

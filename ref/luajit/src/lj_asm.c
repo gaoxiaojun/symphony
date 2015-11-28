@@ -2190,6 +2190,8 @@ void lj_asm_trace(jit_State *J, GCtrace *T)
   MCode *origtop;
 
   /* Ensure an initialized instruction beyond the last one for HIOP checks. */
+  // GXJ: HIOP means Hold hi-word operands of split instructions
+  //      HIOP must immediately follow a split instruction (split 64 bit op or soft-fp op).
   J->cur.nins = lj_ir_nextins(J);
   J->cur.ir[J->cur.nins].o = IR_NOP;
 

@@ -1,3 +1,4 @@
+// GTD: RF
 /*
 ** Target architecture selection.
 ** Copyright (C) 2005-2015 Mike Pall. See Copyright Notice in luajit.h
@@ -431,7 +432,7 @@
 #endif
 
 /* Disable or enable the JIT compiler. */
-#if defined(LUAJIT_DISABLE_JIT) || defined(LJ_ARCH_NOJIT) || defined(LJ_OS_NOJIT) || LJ_FR2 || LJ_GC64
+#if defined(LUAJIT_DISABLE_JIT) || defined(LJ_ARCH_NOJIT) || defined(LJ_OS_NOJIT) || LJ_FR2 || LJ_GC64 //GTD: HASJIT for LJ_FR2 or LJ_GC64
 #define LJ_HASJIT		0
 #else
 #define LJ_HASJIT		1

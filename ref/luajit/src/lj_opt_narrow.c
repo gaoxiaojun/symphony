@@ -58,7 +58,7 @@
 ** dependencies can be well hidden by out-of-order execution.
 **
 ** A better solution is to keep all numbers as FP values and only narrow
-** when it's beneficial to do so. LuaJIT uses predictive narrowing for
+** when it's beneficial(有利) to do so. LuaJIT uses predictive narrowing for
 ** induction variables and demand-driven narrowing for index expressions,
 ** integer arguments and bit operations. Additionally it can eliminate or
 ** hoist most of the resulting overflow checks. Regular arithmetic
