@@ -106,6 +106,7 @@ LJ_ASMF void lj_cont_hook(void);  /* Continue from hook yield. */
 LJ_ASMF void lj_cont_stitch(void);  /* Trace stitching. */
 
 /* Start of the ASM code. */
+//GTD: 汇编导出符号，指汇编的代码入口
 LJ_ASMF char lj_vm_asm_begin[];
 
 /* Bytecode offsets are relative to lj_vm_asm_begin. */

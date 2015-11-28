@@ -71,6 +71,15 @@ void lj_dispatch_init(GG_State *GG)
   disp[BC_LOOP] = disp[BC_ILOOP];
   disp[BC_FUNCF] = disp[BC_IFUNCF];
   disp[BC_FUNCV] = disp[BC_IFUNCV];
+  /*
+   * GTD:
+   * The FUNCC and FUNCCW instructions are pseudo-headers pointed to by the pc field of C closures.
+   * They are never emitted and are only used for dispatching to the setup code for C function calls.
+   *
+   * FUNC* in bcff, All higher-numbered bytecode instructions are used as pseudo-headers for fast functions.
+   * They are never emitted and are only used for dispatching to the machine code for the corresponding fast functions.
+   * All FUNCC&FUNCCW&FUNC* has rbase as A oprands
+   */
   GG->g.bc_cfunc_ext = GG->g.bc_cfunc_int = BCINS_AD(BC_FUNCC, LUA_MINSTACK, 0);
   for (i = 0; i < GG_NUM_ASMFF; i++)
     GG->bcff[i] = BCINS_AD(BC__MAX+i, 0, 0);
@@ -184,11 +193,11 @@ void lj_dispatch_update(global_State *g)
     if ((oldmode ^ mode) & DISPMODE_CALL) {  /* Update the whole table? */
       uint32_t i;
       if ((mode & DISPMODE_CALL) == 0) {  /* No call hooks? */
-	for (i = GG_LEN_SDISP; i < GG_LEN_DDISP; i++)
-	  disp[i] = makeasmfunc(lj_bc_ofs[i]);
+        for (i = GG_LEN_SDISP; i < GG_LEN_DDISP; i++)
+        disp[i] = makeasmfunc(lj_bc_ofs[i]);
       } else {
-	for (i = GG_LEN_SDISP; i < GG_LEN_DDISP; i++)
-	  disp[i] = lj_vm_callhook;
+        for (i = GG_LEN_SDISP; i < GG_LEN_DDISP; i++)
+        disp[i] = lj_vm_callhook;
       }
     }
     if (!(mode & DISPMODE_CALL)) {  /* Overwrite dynamic counting ins. */
@@ -401,6 +410,7 @@ static BCReg cur_topslot(GCproto *pt, const BCIns *pc, uint32_t nres)
 }
 
 /* Instruction dispatch. Used by instr/line/return hooks or when recording. */
+// GTD: lj_dispatch_ins被 vm调用，具体见vm_<arch>.dasc
 void LJ_FASTCALL lj_dispatch_ins(lua_State *L, const BCIns *pc)
 {
   ERRNO_SAVE

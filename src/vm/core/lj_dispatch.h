@@ -64,6 +64,7 @@ typedef uint16_t HotCount;
 /* This solves a circular dependency problem -- bump as needed. Sigh. */
 #define GG_NUM_ASMFF	57
 
+//GTD: DDISP dynamic dispatch SDISP static dispatch
 #define GG_LEN_DDISP	(BC__MAX + GG_NUM_ASMFF)
 #define GG_LEN_SDISP	BC_FUNCF
 #define GG_LEN_DISP	(GG_LEN_DDISP + GG_LEN_SDISP)
