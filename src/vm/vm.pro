@@ -90,7 +90,8 @@ HEADERS += core/lj_alloc.h \
            jit/ir/lj_ir.h \
            jit/ir/lj_ircall.h \
            jit/ir/lj_iropt.h \
-           util/gdb/lj_gdbjit.h
+           util/gdb/lj_gdbjit.h \
+    jit/lj_gdbjit.h
 SOURCES += core/lj_alloc.c \
            core/lj_api.c \
            core/lj_debug.c \
@@ -162,4 +163,44 @@ SOURCES += core/lj_alloc.c \
            lua/lib/lib_package.c \
            lua/lib/lib_string.c \
            lua/lib/lib_table.c \
-           util/gdb/lj_gdbjit.c
+           util/gdb/lj_gdbjit.c \
+    jit/lj_gdbjit.c
+
+DISTFILES += \
+    core/arch/vm_arm.dasc \
+    core/arch/vm_arm64.dasc \
+    core/arch/vm_mips.dasc \
+    core/arch/vm_ppc.dasc \
+    core/arch/vm_x64.dasc \
+    core/arch/vm_x86.dasc \
+    core/lj_vm.S \
+    misc/lj.supp \
+    misc/msvcbuild.bat \
+    misc/ps4build.bat \
+    misc/psvitabuild.bat \
+    misc/xb1build.bat \
+    misc/xedkbuild.bat \
+    dynasm/dasm_arm.lua \
+    dynasm/dasm_arm64.lua \
+    dynasm/dasm_mips.lua \
+    dynasm/dasm_ppc.lua \
+    dynasm/dasm_x64.lua \
+    dynasm/dasm_x86.lua \
+    dynasm/dynasm.lua \
+    tool/genlibbc.lua \
+    tool/genminilua.lua \
+    util/bytecode/bc.lua \
+    util/bytecode/bcsave.lua \
+    util/dis/dis_arm.lua \
+    util/dis/dis_mips.lua \
+    util/dis/dis_mipsel.lua \
+    util/dis/dis_ppc.lua \
+    util/dis/dis_x64.lua \
+    util/dis/dis_x86.lua \
+    util/profile/dump.lua \
+    util/profile/p.lua \
+    util/profile/v.lua \
+    util/profile/zone.lua \
+    Makefile \
+    Makefile.dep \
+    tool/README
