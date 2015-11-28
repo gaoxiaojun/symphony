@@ -4,7 +4,7 @@
 
 TEMPLATE = app
 TARGET = vm
-INCLUDEPATH += . core core/bytecode core/lang core/util \
+INCLUDEPATH += . ../dynasm core core/bytecode core/lang core/util \
                 jit jit/arch jit/arch/arm jit/arch/ppc jit/arch/mips jit/arch/x86 jit/ir \
                 ffi lua util/gbd
 
@@ -71,9 +71,9 @@ HEADERS += core/lj_alloc.h \
            jit/ir/lj_ircall.h \
            jit/ir/lj_iropt.h \
            util/gdb/lj_gdbjit.h \
-           util/host/buildvm.h \
-           util/host/buildvm_arch.h \
-           util/host/buildvm_libbc.h \
+           tool/buildvm.h \
+           tool/buildvm_arch.h \
+           tool/buildvm_libbc.h \
            jit/arch/arm/lj_asm_arm.h \
            jit/arch/arm/lj_emit_arm.h \
            jit/arch/arm/lj_target_arm.h \
@@ -153,16 +153,16 @@ SOURCES += core/lj_alloc.c \
            lua/lib/lib_string.c \
            lua/lib/lib_table.c \
            util/gdb/lj_gdbjit.c \
-           util/host/buildvm.c \
-           util/host/buildvm_asm.c \
-           util/host/buildvm_fold.c \
-           util/host/buildvm_lib.c \
-           util/host/buildvm_peobj.c \
-           util/host/minilua.c
+           tool/buildvm.c \
+           tool/buildvm_asm.c \
+           tool/buildvm_fold.c \
+           tool/buildvm_lib.c \
+           tool/buildvm_peobj.c \
+           tool/minilua.c
 
 DISTFILES += \
-    util/host/buildvm \
-    util/host/minilua \
+    tool/buildvm \
+    tool/minilua \
     core/arch/arm/vm_arm.dasc \
     core/arch/arm/vm_arm64.dasc \
     core/arch/mips/vm_mips.dasc \
@@ -183,8 +183,8 @@ DISTFILES += \
     util/dis/dis_ppc.lua \
     util/dis/dis_x64.lua \
     util/dis/dis_x86.lua \
-    util/host/genlibbc.lua \
-    util/host/genminilua.lua \
+    tool/genlibbc.lua \
+    tool/genminilua.lua \
     util/profile/dump.lua \
     util/profile/p.lua \
     util/profile/v.lua \
@@ -192,4 +192,4 @@ DISTFILES += \
     util/profile/zone.lua \
     Makefile \
     Makefile.dep \
-    util/host/README
+    tool/README

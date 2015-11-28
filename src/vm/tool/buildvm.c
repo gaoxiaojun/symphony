@@ -41,7 +41,8 @@
 #define Dst_REF		(ctx->D)
 #define DASM_CHECKS	1
 
-#include "../dynasm/dasm_proto.h"
+//#include "../dynasm/dasm_proto.h"
+#include "dasm_proto.h"
 
 /* Glue macros for DynASM. */
 static int collect_reloc(BuildCtx *ctx, uint8_t *addr, int idx, int type);
