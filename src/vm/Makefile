@@ -197,7 +197,7 @@ HOST_RM= rm -f
 # copy of (plain) Lua 5.1 or 5.2, plus Lua BitOp. E.g. with: HOST_LUA=lua
 HOST_LUA=
 
-HOST_XCFLAGS= -Idynasm -Icore -Icore/bytecode -Icore/lang -Icore/util -Ijit -Ijit/ir -Ijit/arch -Ijit/opt -Iffi -Ilua
+HOST_XCFLAGS= -Idynasm -Icore -Icore/bytecode -Icore/lang -Icore/util -Ijit -Ijit/ir -Ijit/arch -Ijit/opt -Iffi -Ilua -Ilua/lib
 HOST_XLDFLAGS=
 HOST_XLIBS=
 HOST_ACFLAGS= $(CCOPTIONS) $(HOST_XCFLAGS) $(TARGET_ARCH) $(HOST_CFLAGS)
@@ -466,23 +466,23 @@ LJVM_O= lj_vm.o
 LJVM_BOUT= $(LJVM_S)
 LJVM_MODE= elfasm
 
-LJLIB_O= lib_base.o lib_math.o lib_bit.o lib_string.o lib_table.o \
-	 lib_io.o lib_os.o lib_package.o lib_debug.o lib_jit.o lib_ffi.o
+LJLIB_O= lua/lib/lib_base.o lua/lib/lib_math.o lua/lib/lib_bit.o lua/lib/lib_string.o lua/lib/lib_table.o \
+	 lua/lib/lib_io.o lua/lib/lib_os.o lua/lib/lib_package.o lua/lib/lib_debug.o lua/lib/lib_jit.o lua/lib/lib_ffi.o
 LJLIB_C= $(LJLIB_O:.o=.c)
 
-LJCORE_O= lj_gc.o lj_err.o lj_char.o lj_bc.o lj_obj.o lj_buf.o \
-	  lj_str.o lj_tab.o lj_func.o lj_udata.o lj_meta.o lj_debug.o \
-	  lj_state.o lj_dispatch.o lj_vmevent.o lj_vmmath.o lj_strscan.o \
-	  lj_strfmt.o lj_api.o lj_profile.o \
-	  lj_lex.o lj_parse.o lj_bcread.o lj_bcwrite.o lj_load.o \
-	  lj_ir.o lj_opt_mem.o lj_opt_fold.o lj_opt_narrow.o \
-	  lj_opt_dce.o lj_opt_loop.o lj_opt_split.o lj_opt_sink.o \
-	  lj_mcode.o lj_snap.o lj_record.o lj_crecord.o lj_ffrecord.o \
-	  lj_asm.o lj_trace.o lj_gdbjit.o \
-	  lj_ctype.o lj_cdata.o lj_cconv.o lj_ccall.o lj_ccallback.o \
-	  lj_carith.o lj_clib.o lj_cparse.o \
-	  lj_lib.o lj_alloc.o lib_aux.o \
-	  $(LJLIB_O) lib_init.o
+LJCORE_O= core/lj_gc.o core/lj_err.o core/util/lj_char.o core/bytecode/lj_bc.o core/lj_obj.o core/util/lj_buf.o \
+	  core/util/lj_str.o core/lj_tab.o core/lj_func.o core/lj_udata.o core/lj_meta.o core/lj_debug.o \
+	  core/lj_state.o core/lj_dispatch.o core/lj_vmevent.o core/lj_vmmath.o core/util/lj_strscan.o \
+	  core/util/lj_strfmt.o core/lj_api.o core/lj_profile.o \
+	  core/lang/lj_lex.o core/lang/lj_parse.o core/bytecode/lj_bcread.o core/bytecode/lj_bcwrite.o core/lj_load.o \
+	  jit/ir/lj_ir.o jit/opt/lj_opt_mem.o jit/opt/lj_opt_fold.o jit/opt/lj_opt_narrow.o \
+	  jit/opt/lj_opt_dce.o jit/opt/lj_opt_loop.o jit/opt/lj_opt_split.o jit/opt/lj_opt_sink.o \
+	  jit/lj_mcode.o jit/lj_snap.o jit/lj_record.o ffi/lj_crecord.o ffi/lj_ffrecord.o \
+	  jit/lj_asm.o jit/lj_trace.o jit/lj_gdbjit.o \
+	  ffi/lj_ctype.o ffi/lj_cdata.o ffi/lj_cconv.o ffi/lj_ccall.o ffi/lj_ccallback.o \
+	  ffi/lj_carith.o ffi/lj_clib.o ffi/lj_cparse.o \
+	  core/lj_lib.o core/lj_alloc.o lua/lib/lib_aux.o \
+	  $(LJLIB_O) lua/lib/lib_init.o
 
 LJVMCORE_O= $(LJVM_O) $(LJCORE_O)
 LJVMCORE_DYNO= $(LJVMCORE_O:.o=_dyn.o)
@@ -490,7 +490,7 @@ LJVMCORE_DYNO= $(LJVMCORE_O:.o=_dyn.o)
 LIB_VMDEF= jit/vmdef.lua
 LIB_VMDEFP= $(LIB_VMDEF)
 
-LUAJIT_O= luajit.o
+LUAJIT_O= lua/luajit.o
 LUAJIT_A= libluajit.a
 LUAJIT_SO= libluajit.so
 LUAJIT_T= luajit

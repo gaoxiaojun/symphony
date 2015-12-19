@@ -48,20 +48,20 @@
 
 /* Type codes for the GC constants of a prototype. Plus length for strings. */
 enum {
-  BCDUMP_KGC_CHILD, BCDUMP_KGC_TAB, BCDUMP_KGC_I64, BCDUMP_KGC_U64,
-  BCDUMP_KGC_COMPLEX, BCDUMP_KGC_STR
+    BCDUMP_KGC_CHILD, BCDUMP_KGC_TAB, BCDUMP_KGC_I64, BCDUMP_KGC_U64,
+    BCDUMP_KGC_COMPLEX, BCDUMP_KGC_STR
 };
 
 /* Type codes for the keys/values of a constant table. */
 enum {
-  BCDUMP_KTAB_NIL, BCDUMP_KTAB_FALSE, BCDUMP_KTAB_TRUE,
-  BCDUMP_KTAB_INT, BCDUMP_KTAB_NUM, BCDUMP_KTAB_STR
+    BCDUMP_KTAB_NIL, BCDUMP_KTAB_FALSE, BCDUMP_KTAB_TRUE,
+    BCDUMP_KTAB_INT, BCDUMP_KTAB_NUM, BCDUMP_KTAB_STR
 };
 
 /* -- Bytecode reader/writer ---------------------------------------------- */
 
 LJ_FUNC int lj_bcwrite(lua_State *L, GCproto *pt, lua_Writer writer,
-		       void *data, int strip);
+                       void *data, int strip);
 LJ_FUNC GCproto *lj_bcread_proto(LexState *ls);
 LJ_FUNC GCproto *lj_bcread(LexState *ls);
 

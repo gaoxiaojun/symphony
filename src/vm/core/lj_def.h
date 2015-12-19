@@ -1,3 +1,4 @@
+// GTD: RF
 /*
 ** LuaJIT common internal definitions.
 ** Copyright (C) 2005-2015 Mike Pall. See Copyright Notice in luajit.h
@@ -47,7 +48,7 @@ typedef unsigned int uintptr_t;
 
 /* Various VM limits. */
 #define LJ_MAX_MEM32	0x7fffff00	/* Max. 32 bit memory allocation. */
-#define LJ_MAX_MEM64	((uint64_t)1<<47)  /* Max. 64 bit memory allocation. */ //GTD: 48bit address space, why 47???
+#define LJ_MAX_MEM64	((uint64_t)1<<47)  /* Max. 64 bit memory allocation. */
 /* Max. total memory allocation. */
 #define LJ_MAX_MEM	(LJ_GC64 ? LJ_MAX_MEM64 : LJ_MAX_MEM32)
 #define LJ_MAX_ALLOC	LJ_MAX_MEM	/* Max. individual allocation length. */
@@ -107,7 +108,7 @@ typedef unsigned int uintptr_t;
 #if LJ_GC64
 #define checkptrGC(x)	(checkptr47((x)))
 #elif LJ_64
-#define checkptrGC(x)	(checkptr32((x)))   //GTD: 64bit os with 32bit gc
+#define checkptrGC(x)	(checkptr32((x)))
 #else
 #define checkptrGC(x)	1
 #endif
@@ -117,13 +118,14 @@ typedef unsigned int uintptr_t;
 #define lj_ror(x, n)	(((x)<<(-(int)(n)&(8*sizeof(x)-1))) | ((x)>>(n)))
 
 /* A really naive Bloom filter. But sufficient for our needs. */
+/* using in lj_snap.c */
 typedef uintptr_t BloomFilter;
 #define BLOOM_MASK	(8*sizeof(BloomFilter) - 1)
 #define bloombit(x)	((uintptr_t)1 << ((x) & BLOOM_MASK))
 #define bloomset(b, x)	((b) |= bloombit((x)))
 #define bloomtest(b, x)	((b) & bloombit((x)))
 
-#if defined(__GNUC__) || defined(__psp2__) //GTD:clang, may be clang also define __GNUC__, pls confirm it
+#if defined(__GNUC__) || defined(__psp2__)
 
 #define LJ_NORET	__attribute__((noreturn))
 #define LJ_ALIGN(n)	__attribute__((aligned(n)))
@@ -133,7 +135,7 @@ typedef uintptr_t BloomFilter;
 
 #if defined(__ELF__) || defined(__MACH__) || defined(__psp2__)
 #if !((defined(__sun__) && defined(__svr4__)) || defined(__CELLOS_LV2__))
-#define LJ_NOAPI	extern __attribute__((visibility("hidden")))        //GTD: default api policy is hidden
+#define LJ_NOAPI	extern __attribute__((visibility("hidden")))
 #endif
 #endif
 
@@ -225,7 +227,6 @@ static LJ_AINLINE uint64_t lj_bswap64(uint64_t x)
 }
 #endif
 
-//GTD: why??? who using this???
 typedef union __attribute__((packed)) Unaligned16 {
   uint16_t u;
   uint8_t b[2];

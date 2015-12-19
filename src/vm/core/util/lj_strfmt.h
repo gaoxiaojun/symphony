@@ -12,16 +12,16 @@ typedef uint32_t SFormat;  /* Format indicator. */
 
 /* Format parser state. */
 typedef struct FormatState {
-  const uint8_t *p;	/* Current format string pointer. */
-  const uint8_t *e;	/* End of format string. */
-  const char *str;	/* Returned literal string. */
-  MSize len;		/* Size of literal string. */
+    const uint8_t *p;	/* Current format string pointer. */
+    const uint8_t *e;	/* End of format string. */
+    const char *str;	/* Returned literal string. */
+    MSize len;		/* Size of literal string. */
 } FormatState;
 
 /* Format types (max. 16). */
 typedef enum FormatType {
-  STRFMT_EOF, STRFMT_ERR, STRFMT_LIT,
-  STRFMT_INT, STRFMT_UINT, STRFMT_NUM, STRFMT_STR, STRFMT_CHAR, STRFMT_PTR
+    STRFMT_EOF, STRFMT_ERR, STRFMT_LIT,
+    STRFMT_INT, STRFMT_UINT, STRFMT_NUM, STRFMT_STR, STRFMT_CHAR, STRFMT_PTR
 } FormatType;
 
 /* Format subtypes (bits are reused). */
@@ -76,9 +76,9 @@ LJ_FUNC SFormat LJ_FASTCALL lj_strfmt_parse(FormatState *fs);
 
 static LJ_AINLINE void lj_strfmt_init(FormatState *fs, const char *p, MSize len)
 {
-  fs->p = (const uint8_t *)p;
-  fs->e = (const uint8_t *)p + len;
-  lua_assert(*fs->e == 0);  /* Must be NUL-terminated (may have NULs inside). */
+    fs->p = (const uint8_t *)p;
+    fs->e = (const uint8_t *)p + len;
+    lua_assert(*fs->e == 0);  /* Must be NUL-terminated (may have NULs inside). */
 }
 
 /* Raw conversions. */
@@ -115,11 +115,11 @@ LJ_FUNC GCstr * LJ_FASTCALL lj_strfmt_obj(lua_State *L, cTValue *o);
 
 /* Internal string formatting. */
 LJ_FUNC const char *lj_strfmt_pushvf(lua_State *L, const char *fmt,
-				     va_list argp);
+                                     va_list argp);
 LJ_FUNC const char *lj_strfmt_pushf(lua_State *L, const char *fmt, ...)
 #ifdef __GNUC__
-  __attribute__ ((format (printf, 2, 3)))
+__attribute__ ((format (printf, 2, 3)))
 #endif
-  ;
+;
 
 #endif

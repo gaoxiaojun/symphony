@@ -151,9 +151,9 @@
 /* IR opcodes (max. 256). */
 typedef enum {
 #define IRENUM(name, m, m1, m2)	IR_##name,
-IRDEF(IRENUM)
+    IRDEF(IRENUM)
 #undef IRENUM
-  IR__MAX
+    IR__MAX
 } IROp;
 
 /* Stored opcode. */
@@ -184,9 +184,9 @@ LJ_STATIC_ASSERT((int)IR_XLOAD + IRDELTA_L2S == (int)IR_XSTORE);
 
 typedef enum {
 #define FPMENUM(name)		IRFPM_##name,
-IRFPMDEF(FPMENUM)
+    IRFPMDEF(FPMENUM)
 #undef FPMENUM
-  IRFPM__MAX
+    IRFPM__MAX
 } IRFPMathOp;
 
 /* FLOAD fields. */
@@ -213,9 +213,9 @@ IRFPMDEF(FPMENUM)
 
 typedef enum {
 #define FLENUM(name, ofs)	IRFL_##name,
-IRFLDEF(FLENUM)
+    IRFLDEF(FLENUM)
 #undef FLENUM
-  IRFL__MAX
+    IRFL__MAX
 } IRFieldID;
 
 /* SLOAD mode bits, stored in op2. */
@@ -260,10 +260,10 @@ IRFLDEF(FLENUM)
 
 /* IR operand mode (2 bit). */
 typedef enum {
-  IRMref,		/* IR reference. */
-  IRMlit,		/* 16 bit unsigned literal. */
-  IRMcst,		/* Constant literal: i, gcr or ptr. */
-  IRMnone		/* Unused operand. */
+    IRMref,		/* IR reference. */
+    IRMlit,		/* 16 bit unsigned literal. */
+    IRMcst,		/* Constant literal: i, gcr or ptr. */
+    IRMnone		/* Unused operand. */
 } IRMode;
 #define IRM___		IRMnone
 
@@ -312,30 +312,32 @@ LJ_DATA const uint8_t lj_ir_mode[IR__MAX+1];
 /* IR result type and flags (8 bit). */
 typedef enum {
 #define IRTENUM(name, size)	IRT_##name,
-IRTDEF(IRTENUM)
+    IRTDEF(IRTENUM)
 #undef IRTENUM
-  IRT__MAX,
+    IRT__MAX,
 
-  /* Native pointer type and the corresponding integer type. */
-  IRT_PTR = LJ_64 ? IRT_P64 : IRT_P32,
-  IRT_INTP = LJ_64 ? IRT_I64 : IRT_INT,
-  IRT_UINTP = LJ_64 ? IRT_U64 : IRT_U32,
-  /* TODO_GC64: major changes required for all uses of IRT_P32. */
+    /* Native pointer type and the corresponding integer type. */
+    IRT_PTR = LJ_64 ? IRT_P64 : IRT_P32,
+    IRT_INTP = LJ_64 ? IRT_I64 : IRT_INT,
+    IRT_UINTP = LJ_64 ? IRT_U64 : IRT_U32,
+    /* TODO_GC64: major changes required for all uses of IRT_P32. */
 
-  /* Additional flags. */
-  IRT_MARK = 0x20,	/* Marker for misc. purposes. */
-  IRT_ISPHI = 0x40,	/* Instruction is left or right PHI operand. */
-  IRT_GUARD = 0x80,	/* Instruction is a guard. */
+    /* Additional flags. */
+    IRT_MARK = 0x20,	/* Marker for misc. purposes. */
+    IRT_ISPHI = 0x40,	/* Instruction is left or right PHI operand. */
+    IRT_GUARD = 0x80,	/* Instruction is a guard. */
 
-  /* Masks. */
-  IRT_TYPE = 0x1f,
-  IRT_T = 0xff
+    /* Masks. */
+    IRT_TYPE = 0x1f,
+    IRT_T = 0xff
 } IRType;
 
 #define irtype_ispri(irt)	((uint32_t)(irt) <= IRT_TRUE)
 
 /* Stored IRType. */
-typedef struct IRType1 { uint8_t irt; } IRType1;
+typedef struct IRType1 {
+    uint8_t irt;
+} IRType1;
 
 #define IRT(o, t)		((uint32_t)(((o)<<8) | (t)))
 #define IRTI(o)			(IRT((o), IRT_INT))
@@ -394,27 +396,27 @@ LJ_DATA const uint8_t lj_ir_type_size[];
 
 static LJ_AINLINE IRType itype2irt(const TValue *tv)
 {
-  if (tvisint(tv))
-    return IRT_INT;
-  else if (tvisnum(tv))
-    return IRT_NUM;
+    if (tvisint(tv))
+        return IRT_INT;
+    else if (tvisnum(tv))
+        return IRT_NUM;
 #if LJ_64 && !LJ_GC64
-  else if (tvislightud(tv))
-    return IRT_LIGHTUD;
+    else if (tvislightud(tv))
+        return IRT_LIGHTUD;
 #endif
-  else
-    return (IRType)~itype(tv);
+    else
+        return (IRType)~itype(tv);
 }
 
 static LJ_AINLINE uint32_t irt_toitype_(IRType t)
 {
-  lua_assert(!LJ_64 || t != IRT_LIGHTUD);
-  if (LJ_DUALNUM && t > IRT_NUM) {
-    return LJ_TISNUM;
-  } else {
-    lua_assert(t <= IRT_NUM);
-    return ~(uint32_t)t;
-  }
+    lua_assert(!LJ_64 || t != IRT_LIGHTUD);
+    if (LJ_DUALNUM && t > IRT_NUM) {
+        return LJ_TISNUM;
+    } else {
+        lua_assert(t <= IRT_NUM);
+        return ~(uint32_t)t;
+    }
 }
 
 #define irt_toitype(t)		irt_toitype_(irt_type((t)))
@@ -439,13 +441,13 @@ typedef uint32_t IRRef;		/* Used to pass around references. */
 
 /* Fixed references. */
 enum {
-  REF_BIAS =	0x8000,
-  REF_TRUE =	REF_BIAS-3,
-  REF_FALSE =	REF_BIAS-2,
-  REF_NIL =	REF_BIAS-1,	/* \--- Constants grow downwards. */
-  REF_BASE =	REF_BIAS,	/* /--- IR grows upwards. */
-  REF_FIRST =	REF_BIAS+1,
-  REF_DROP =	0xffff
+    REF_BIAS =	0x8000,
+    REF_TRUE =	REF_BIAS-3,
+    REF_FALSE =	REF_BIAS-2,
+    REF_NIL =	REF_BIAS-1,	/* \--- Constants grow downwards. */
+    REF_BASE =	REF_BIAS,	/* /--- IR grows upwards. */
+    REF_FIRST =	REF_BIAS+1,
+    REF_DROP =	0xffff
 };
 
 /* Note: IRMlit operands must be < REF_BIAS, too!
@@ -529,28 +531,28 @@ typedef uint32_t TRef;
 */
 
 typedef union IRIns {
-  struct {
-    LJ_ENDIAN_LOHI(
-      IRRef1 op1;	/* IR operand 1. */
-    , IRRef1 op2;	/* IR operand 2. */
-    )
-    IROpT ot;		/* IR opcode and type (overlaps t and o). */
-    IRRef1 prev;	/* Previous ins in same chain (overlaps r and s). */
-  };
-  struct {
-    IRRef2 op12;	/* IR operand 1 and 2 (overlaps op1 and op2). */
-    LJ_ENDIAN_LOHI(
-      IRType1 t;	/* IR type. */
-    , IROp1 o;		/* IR opcode. */
-    )
-    LJ_ENDIAN_LOHI(
-      uint8_t r;	/* Register allocation (overlaps prev). */
-    , uint8_t s;	/* Spill slot allocation (overlaps prev). */
-    )
-  };
-  int32_t i;		/* 32 bit signed integer literal (overlaps op12). */
-  GCRef gcr;		/* GCobj constant (overlaps op12). */
-  MRef ptr;		/* Pointer constant (overlaps op12). */
+    struct {
+        LJ_ENDIAN_LOHI(
+            IRRef1 op1;	/* IR operand 1. */
+            , IRRef1 op2;	/* IR operand 2. */
+        )
+        IROpT ot;		/* IR opcode and type (overlaps t and o). */
+        IRRef1 prev;	/* Previous ins in same chain (overlaps r and s). */
+    };
+    struct {
+        IRRef2 op12;	/* IR operand 1 and 2 (overlaps op1 and op2). */
+        LJ_ENDIAN_LOHI(
+            IRType1 t;	/* IR type. */
+            , IROp1 o;		/* IR opcode. */
+        )
+        LJ_ENDIAN_LOHI(
+            uint8_t r;	/* Register allocation (overlaps prev). */
+            , uint8_t s;	/* Spill slot allocation (overlaps prev). */
+        )
+    };
+    int32_t i;		/* 32 bit signed integer literal (overlaps op12). */
+    GCRef gcr;		/* GCobj constant (overlaps op12). */
+    MRef ptr;		/* Pointer constant (overlaps op12). */
 } IRIns;
 
 /* TODO_GC64: major changes required. */
@@ -569,7 +571,7 @@ typedef union IRIns {
 /* A store or any other op with a non-weak guard has a side-effect. */
 static LJ_AINLINE int ir_sideeff(IRIns *ir)
 {
-  return (((ir->t.irt | ~IRT_GUARD) & lj_ir_mode[ir->o]) >= IRM_S);
+    return (((ir->t.irt | ~IRT_GUARD) & lj_ir_mode[ir->o]) >= IRM_S);
 }
 
 LJ_STATIC_ASSERT((int)IRT_GUARD == (int)IRM_W);

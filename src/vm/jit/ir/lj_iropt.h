@@ -19,7 +19,9 @@ LJ_FUNC TRef LJ_FASTCALL lj_ir_emit(jit_State *J);
 /* Save current IR in J->fold.ins, but do not emit it (yet). */
 static LJ_AINLINE void lj_ir_set_(jit_State *J, uint16_t ot, IRRef1 a, IRRef1 b)
 {
-  J->fold.ins.ot = ot; J->fold.ins.op1 = a; J->fold.ins.op2 = b;
+    J->fold.ins.ot = ot;
+    J->fold.ins.op1 = a;
+    J->fold.ins.op2 = b;
 }
 
 #define lj_ir_set(J, ot, a, b) \
@@ -30,10 +32,10 @@ static LJ_AINLINE void lj_ir_set_(jit_State *J, uint16_t ot, IRRef1 a, IRRef1 b)
 */
 static LJ_AINLINE IRRef lj_ir_nextins(jit_State *J)
 {
-  IRRef ref = J->cur.nins;
-  if (LJ_UNLIKELY(ref >= J->irtoplim)) lj_ir_growtop(J);
-  J->cur.nins = ref + 1;
-  return ref;
+    IRRef ref = J->cur.nins;
+    if (LJ_UNLIKELY(ref >= J->irtoplim)) lj_ir_growtop(J);
+    J->cur.nins = ref + 1;
+    return ref;
 }
 
 /* Interning of constants. */
@@ -58,9 +60,9 @@ LJ_FUNC TRef lj_ir_kslot(jit_State *J, TRef key, IRRef slot);
 
 static LJ_AINLINE TRef lj_ir_knum(jit_State *J, lua_Number n)
 {
-  TValue tv;
-  tv.n = n;
-  return lj_ir_knum_u64(J, tv.u64);
+    TValue tv;
+    tv.n = n;
+    return lj_ir_knum_u64(J, tv.u64);
 }
 
 #define lj_ir_kstr(J, str)	lj_ir_kgc(J, obj2gco((str)), IRT_STR)
@@ -98,12 +100,12 @@ LJ_FUNC TRef LJ_FASTCALL lj_opt_cselim(jit_State *J, IRRef lim);
 
 /* Special return values for the fold functions. */
 enum {
-  NEXTFOLD,		/* Couldn't fold, pass on. */
-  RETRYFOLD,		/* Retry fold with modified fins. */
-  KINTFOLD,		/* Return ref for int constant in fins->i. */
-  FAILFOLD,		/* Guard would always fail. */
-  DROPFOLD,		/* Guard eliminated. */
-  MAX_FOLD
+    NEXTFOLD,		/* Couldn't fold, pass on. */
+    RETRYFOLD,		/* Retry fold with modified fins. */
+    KINTFOLD,		/* Return ref for int constant in fins->i. */
+    FAILFOLD,		/* Guard would always fail. */
+    DROPFOLD,		/* Guard eliminated. */
+    MAX_FOLD
 };
 
 #define INTFOLD(k)	((J->fold.ins.i = (k)), (TRef)KINTFOLD)
@@ -141,7 +143,7 @@ LJ_FUNC TRef LJ_FASTCALL lj_opt_narrow_tobit(jit_State *J, TRef tr);
 LJ_FUNC TRef LJ_FASTCALL lj_opt_narrow_cindex(jit_State *J, TRef key);
 #endif
 LJ_FUNC TRef lj_opt_narrow_arith(jit_State *J, TRef rb, TRef rc,
-				 TValue *vb, TValue *vc, IROp op);
+                                 TValue *vb, TValue *vc, IROp op);
 LJ_FUNC TRef lj_opt_narrow_unm(jit_State *J, TRef rc, TValue *vc);
 LJ_FUNC TRef lj_opt_narrow_mod(jit_State *J, TRef rb, TRef rc, TValue *vc);
 LJ_FUNC TRef lj_opt_narrow_pow(jit_State *J, TRef rb, TRef rc, TValue *vc);

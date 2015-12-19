@@ -199,9 +199,9 @@
 /* Bytecode opcode numbers. */
 typedef enum {
 #define BCENUM(name, ma, mb, mc, mt)	BC_##name,
-BCDEF(BCENUM)
+    BCDEF(BCENUM)
 #undef BCENUM
-  BC__MAX
+    BC__MAX
 } BCOp;
 
 LJ_STATIC_ASSERT((int)BC_ISEQV+1 == (int)BC_ISNEV);
@@ -232,14 +232,14 @@ LJ_STATIC_ASSERT((int)BC_FUNCV + 2 == (int)BC_JFUNCV);
 
 /* Stack slots used by FORI/FORL, relative to operand A. */
 enum {
-  FORL_IDX, FORL_STOP, FORL_STEP, FORL_EXT
+    FORL_IDX, FORL_STOP, FORL_STEP, FORL_EXT
 };
 
 /* Bytecode operand modes. ORDER BCMode */
 typedef enum {
-  BCMnone, BCMdst, BCMbase, BCMvar, BCMrbase, BCMuv,  /* Mode A must be <= 7 */
-  BCMlit, BCMlits, BCMpri, BCMnum, BCMstr, BCMtab, BCMfunc, BCMjump, BCMcdata,
-  BCM_max
+    BCMnone, BCMdst, BCMbase, BCMvar, BCMrbase, BCMuv,  /* Mode A must be <= 7 */
+    BCMlit, BCMlits, BCMpri, BCMnum, BCMstr, BCMtab, BCMfunc, BCMjump, BCMcdata,
+    BCM_max
 } BCMode;
 #define BCM___		BCMnone
 
@@ -256,7 +256,7 @@ typedef enum {
 
 static LJ_AINLINE int bc_isret(BCOp op)
 {
-  return (op == BC_RETM || op == BC_RET || op == BC_RET0 || op == BC_RET1);
+    return (op == BC_RETM || op == BC_RET || op == BC_RET0 || op == BC_RET1);
 }
 
 LJ_DATA const uint16_t lj_bc_mode[];

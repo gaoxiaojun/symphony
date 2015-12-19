@@ -4,7 +4,9 @@
 
 TEMPLATE = app
 TARGET = vm
-INCLUDEPATH += .
+INCLUDEPATH += . gen util tool ffi lua lua/lib \
+                core core/bytecode core/arch core/util core/lang \
+                jit jit/arch jit/ir
 
 # Input
 HEADERS += core/lj_alloc.h \
@@ -91,7 +93,14 @@ HEADERS += core/lj_alloc.h \
            jit/ir/lj_ircall.h \
            jit/ir/lj_iropt.h \
            util/gdb/lj_gdbjit.h \
-    jit/lj_gdbjit.h
+    jit/lj_gdbjit.h \
+    core/util/lj_tab.h \
+    core/util/lj_udata.h \
+    gen/lj_bcdef.h \
+    gen/lj_ffdef.h \
+    gen/lj_folddef.h \
+    gen/lj_libdef.h \
+    gen/lj_recdef.h
 SOURCES += core/lj_alloc.c \
            core/lj_api.c \
            core/lj_debug.c \
@@ -164,7 +173,9 @@ SOURCES += core/lj_alloc.c \
            lua/lib/lib_string.c \
            lua/lib/lib_table.c \
            util/gdb/lj_gdbjit.c \
-    jit/lj_gdbjit.c
+    jit/lj_gdbjit.c \
+    core/util/lj_tab.c \
+    core/util/lj_udata.c
 
 DISTFILES += \
     core/arch/vm_arm.dasc \
@@ -203,4 +214,5 @@ DISTFILES += \
     util/profile/zone.lua \
     Makefile \
     Makefile.dep \
-    tool/README
+    tool/README \
+    ../../doc/gc.md

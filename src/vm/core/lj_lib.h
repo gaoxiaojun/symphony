@@ -12,7 +12,7 @@
 ** A fallback handler is called by the assembler VM if the fast path fails:
 **
 ** - too few arguments:   unrecoverable.
-** - wrong argument type:   recoverable, if coercion succeeds.
+** - wrong argument type:   recoverable, if coercion(强迫) succeeds.
 ** - bad argument value:  unrecoverable.
 ** - stack overflow:        recoverable, if stack reallocation succeeds.
 ** - extra handling:        recoverable.
@@ -85,11 +85,11 @@ LJ_FUNC GCfunc *lj_lib_pushcc(lua_State *L, lua_CFunction f, int id, int n);
   lj_lib_register(L, regname, lj_lib_init_##name, lj_lib_cf_##name)
 
 LJ_FUNC void lj_lib_register(lua_State *L, const char *libname,
-			     const uint8_t *init, const lua_CFunction *cf);
+                             const uint8_t *init, const lua_CFunction *cf);
 LJ_FUNC void lj_lib_prereg(lua_State *L, const char *name, lua_CFunction f,
-			   GCtab *env);
+                           GCtab *env);
 LJ_FUNC int lj_lib_postreg(lua_State *L, lua_CFunction cf, int id,
-			   const char *name);
+                           const char *name);
 
 /* Library init data tags. */
 #define LIBINIT_LENMASK	0x3f

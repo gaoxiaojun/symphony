@@ -1,0 +1,21 @@
+Coco -- True C coroutines for Lua
+---------------------------------
+
+Coco is a small extension to get True C Coroutine semantics for Lua 5.1.
+
+Homepage: http://coco.luajit.org/
+
+Coco is Copyright (C) 2005-2012 Mike Pall.
+Coco is free software, released under the MIT license.
+
+---------------------------------
+
+Full documentation for Coco is available in HTML format.
+Please point your favourite browser to:
+
+ doc/index.html
+
+Detailed installation instructions are here:
+
+ doc/install.html
+

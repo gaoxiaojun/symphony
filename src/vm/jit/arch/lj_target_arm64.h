@@ -23,29 +23,29 @@
 #define RIDENUM(name)	RID_##name,
 
 enum {
-  GPRDEF(RIDENUM)		/* General-purpose registers (GPRs). */
-  FPRDEF(RIDENUM)		/* Floating-point registers (FPRs). */
-  RID_MAX,
-  RID_TMP = RID_LR,
-  RID_ZERO = RID_SP,
+    GPRDEF(RIDENUM)		/* General-purpose registers (GPRs). */
+    FPRDEF(RIDENUM)		/* Floating-point registers (FPRs). */
+    RID_MAX,
+    RID_TMP = RID_LR,
+    RID_ZERO = RID_SP,
 
-  /* Calling conventions. */
-  RID_RET = RID_X0,
-  RID_FPRET = RID_D0,
+    /* Calling conventions. */
+    RID_RET = RID_X0,
+    RID_FPRET = RID_D0,
 
-  /* These definitions must match with the *.dasc file(s): */
-  RID_BASE = RID_X19,		/* Interpreter BASE. */
-  RID_LPC = RID_X21,		/* Interpreter PC. */
-  RID_GL = RID_X22,		/* Interpreter GL. */
-  RID_LREG = RID_X23,		/* Interpreter L. */
+    /* These definitions must match with the *.dasc file(s): */
+    RID_BASE = RID_X19,		/* Interpreter BASE. */
+    RID_LPC = RID_X21,		/* Interpreter PC. */
+    RID_GL = RID_X22,		/* Interpreter GL. */
+    RID_LREG = RID_X23,		/* Interpreter L. */
 
-  /* Register ranges [min, max) and number of registers. */
-  RID_MIN_GPR = RID_X0,
-  RID_MAX_GPR = RID_SP+1,
-  RID_MIN_FPR = RID_MAX_GPR,
-  RID_MAX_FPR = RID_D31+1,
-  RID_NUM_GPR = RID_MAX_GPR - RID_MIN_GPR,
-  RID_NUM_FPR = RID_MAX_FPR - RID_MIN_FPR
+    /* Register ranges [min, max) and number of registers. */
+    RID_MIN_GPR = RID_X0,
+    RID_MAX_GPR = RID_SP+1,
+    RID_MIN_FPR = RID_MAX_GPR,
+    RID_MAX_FPR = RID_D31+1,
+    RID_NUM_GPR = RID_MAX_GPR - RID_MIN_GPR,
+    RID_NUM_FPR = RID_MAX_FPR - RID_MIN_FPR
 };
 
 #define RID_NUM_KREF		RID_NUM_GPR
@@ -85,13 +85,13 @@ enum {
 #define A64F_S19(x)	((x) << 5)
 
 typedef enum A64Ins {
-  A64I_MOVZw = 0x52800000,
-  A64I_MOVZx = 0xd2800000,
-  A64I_LDRLw = 0x18000000,
-  A64I_LDRLx = 0x58000000,
-  A64I_NOP = 0xd503201f,
-  A64I_B = 0x14000000,
-  A64I_BR = 0xd61f0000,
+    A64I_MOVZw = 0x52800000,
+    A64I_MOVZx = 0xd2800000,
+    A64I_LDRLw = 0x18000000,
+    A64I_LDRLx = 0x58000000,
+    A64I_NOP = 0xd503201f,
+    A64I_B = 0x14000000,
+    A64I_BR = 0xd61f0000,
 } A64Ins;
 
 #endif

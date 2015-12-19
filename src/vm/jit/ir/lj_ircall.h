@@ -12,8 +12,8 @@
 
 /* C call info for CALL* instructions. */
 typedef struct CCallInfo {
-  ASMFunction func;		/* Function pointer. */
-  uint32_t flags;		/* Number of arguments and flags. */
+    ASMFunction func;		/* Function pointer. */
+    uint32_t flags;		/* Number of arguments and flags. */
 } CCallInfo;
 
 #define CCI_NARGS(ci)		((ci)->flags & 0xff)	/* # of args. */
@@ -228,9 +228,9 @@ typedef struct CCallInfo {
 
 typedef enum {
 #define IRCALLENUM(cond, name, nargs, kind, type, flags)	IRCALL_##name,
-IRCALLDEF(IRCALLENUM)
+    IRCALLDEF(IRCALLENUM)
 #undef IRCALLENUM
-  IRCALL__MAX
+    IRCALL__MAX
 } IRCallID;
 
 LJ_FUNC TRef lj_ir_call(jit_State *J, IRCallID id, ...);

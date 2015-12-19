@@ -227,18 +227,18 @@ ljamalg.o: util/ljamalg.c lua/lua.h lua/luaconf.h lua/lauxlib.h core/lj_gc.c cor
  lua/lib/lib_os.c lua/lib/lib_package.c lua/lib/lib_debug.c lua/lib/lib_bit.c lua/lib/lib_jit.c lua/lib/lib_ffi.c \
  lua/lib/lib_init.c
 luajit.o: lua/luajit.c lua/lua.h lua/luaconf.h lua/lauxlib.h lua/lualib.h lua/luajit.h core/lj_arch.h
-obj/tool/buildvm.o: tool/buildvm.c tool/buildvm.h core/lj_def.h lua/lua.h lua/luaconf.h \
+tool/buildvm.o: tool/buildvm.c tool/buildvm.h core/lj_def.h lua/lua.h lua/luaconf.h \
  core/lj_arch.h core/lj_obj.h core/lj_def.h core/lj_arch.h core/lj_gc.h core/lj_obj.h core/bytecode/lj_bc.h jit/ir/lj_ir.h \
  jit/ir/lj_ircall.h jit/ir/lj_ir.h jit/lj_jit.h core/lj_frame.h core/bytecode/lj_bc.h core/lj_dispatch.h ffi/lj_ctype.h \
  core/lj_gc.h ffi/lj_ccall.h ffi/lj_ctype.h lua/luajit.h \
  tool/buildvm_arch.h jit/lj_traceerr.h
-obj/tool/buildvm_asm.o: tool/buildvm_asm.c tool/buildvm.h core/lj_def.h lua/lua.h lua/luaconf.h \
+tool/buildvm_asm.o: tool/buildvm_asm.c tool/buildvm.h core/lj_def.h lua/lua.h lua/luaconf.h \
  core/lj_arch.h core/bytecode/lj_bc.h core/lj_def.h core/lj_arch.h
-obj/tool/buildvm_fold.o: tool/buildvm_fold.c tool/buildvm.h core/lj_def.h lua/lua.h \
+tool/buildvm_fold.o: tool/buildvm_fold.c tool/buildvm.h core/lj_def.h lua/lua.h \
  lua/luaconf.h core/lj_arch.h core/lj_obj.h core/lj_def.h core/lj_arch.h jit/ir/lj_ir.h core/lj_obj.h
-obj/tool/buildvm_lib.o: tool/buildvm_lib.c tool/buildvm.h core/lj_def.h lua/lua.h lua/luaconf.h \
+tool/buildvm_lib.o: tool/buildvm_lib.c tool/buildvm.h core/lj_def.h lua/lua.h lua/luaconf.h \
  core/lj_arch.h core/lj_obj.h core/lj_def.h core/lj_arch.h core/bytecode/lj_bc.h core/lj_lib.h core/lj_obj.h \
  tool/buildvm_libbc.h
-obj/tool/buildvm_peobj.o: tool/buildvm_peobj.c tool/buildvm.h core/lj_def.h lua/lua.h \
+tool/buildvm_peobj.o: tool/buildvm_peobj.c tool/buildvm.h core/lj_def.h lua/lua.h \
  lua/luaconf.h core/lj_arch.h core/bytecode/lj_bc.h core/lj_def.h core/lj_arch.h
-obj/tool/minilua.o: tool/minilua.c
+tool/minilua.o: tool/minilua.c
